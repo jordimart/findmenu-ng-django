@@ -1,0 +1,38 @@
+<section id="restaurants">
+    <section id="banner">
+    </section>
+    <section class="content-list">
+        <div class="container">
+            <div class="filters col-md-2">
+                <h1>Filtros</h1>
+            </div>
+            <div class="cards col-md-10">
+                <div ng-repeat="card in vm.cards">
+                    <article class="card col-md-12">
+                        <div class="image col-md-6">
+                            <img class="img-responsive" src="{{card.image}}" />
+                        </div>
+                        <div class="info col-md-6">
+                            <h3>{{card.name}}</h3>
+                            <div class="col-md-6 col-xs-6">
+                                <ul>
+                                    <li>almuerzo: {{card.breackfast_price}} euros</li>
+                                    <li>comida: {{card.lunch.price}} euros</li>
+                                    <li>cena: {{card.dinner_price}} euros</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                                <ul>
+                                    <li>{{card.city}}</li>
+                                    <li>{{card.valoration}}</li>
+                                    <li>{{card.users}} usuarios.</li>
+                                </ul>
+                            </div>
+                            <button type="button" class="btn btn-success">Detalles</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

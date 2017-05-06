@@ -1,0 +1,59 @@
+<section id="contact">
+    <section id="banner">
+        </section>
+    <div class="container">
+        <div class="title">
+                <h2>Contacta</h2>
+                <hr>
+            </div>
+        <div class="col-md-offset-2 col-md-8 contact-form">
+            
+            <form  name="contactForm" novalidate role="form">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <span class="label label-danger" ng-show="contactForm.name.$error.required && !contactForm.name.$pristine">Campo obligatorio!</span>
+                    <input type="text" name="name" ng-model="vm.name" class="form-control" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <span class="label label-danger" ng-show="contactForm.email.$error.required && !contactForm.email.$pristine">Campo obligatorio!</span>
+                    <span class="label label-danger" ng-show="contactForm.email.$invalid && !contactForm.email.$pristine">Invalid email!</span>
+                    <input type="email" name="email" ng-model="vm.email" class="form-control" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="subjectList">¿Sobre que tema es su sugerencia?</label>
+                    <span class="label label-danger" ng-show="!contactForm.subjectList.$pristine && contactForm.subjectList.$error.required">Campo obligatorio!</span>
+                    <select name="subjectList" ng-model="vm.subjectList" class="form-control">
+                            <option value="compra">Info relativa a tu compra</option>
+                            <option value="evento">Celebra un evento con nosotros</option>
+                            <option value="programacion">Contacta con nuestro dpto de programación</option>
+                            <option value="Trabaja">Trabaja con nosotros</option>
+                            <option value="proyectos">Deseas proponernos proyectos</option>
+                            <option value="sugerencias">Haznos sugerencias</option>
+                            <option value="reclamaciones">Atendemos tus reclamaciones</option>
+                            <option value="club">Club FindMenu</option>
+                            <option value="sociales">Proyectos sociales</option>
+                            <option value="novedades">Te avisamos de nuestras novedades</option>
+                            <option value="diferente">Algo diferente</option>
+                        </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Descripción</label>
+                    <span class="label label-danger" ng-show="!contactForm.comments.$pristine && contactForm.comments.$error.required">Campo obligatorio!</span>
+                    <textarea name="comments" ng-model="vm.comments" class="form-control" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-success" ng-click="vm.submit()" ng-disabled="!contactForm.$valid">Submit</button>
+            </form>
+
+        </div>
+    </div>
+    <ng-map center="[38.810255, -0.604343]" scrollwheel="false" draggable="false">
+        <marker id="findmenu" position="38.810255, -0.604343" title="Findmenu" on-click="map.showInfoWindow('bar')" ></marker>
+        
+    </ng-map>
+
+</section>

@@ -1,0 +1,66 @@
+<section id="navbar-main">
+    <!--<nav class="navbar navbar-default" ng-controller="NavbarController as vm">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+            <a class="navbar-brand " href="/"><img class="logo" src="../images/tech.svg" /></a>
+        </div>
+        <div id="navbar2" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+                <li ng-class="vm.isCurrent(r)" ng-repeat="r in vm.navRoutes">
+                    <a ui-sref="{{r.name}}" ng-bind-html="r.settings.content"></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="hidden-sm hidden-md">{{'LANGUAGE'|translate}}</span> <span class="glyphicon glyphicon-menu-down"></span>
+
+                    </a>
+                    <div class="dropdown-menu">
+                        <a ng-click="vm.setLang('en')" translate="ENGLISH">English</a>
+                        <a ng-click="vm.setLang('es')" translate="CASTELLANO">Castellano</a>
+                        <a ng-click="vm.setLang('ca')" translate="CATALA">Catala</a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </nav>-->
+
+    <nav class="navbar navbar-default navbar-fixed-top hidden-xs desktop" >
+        <div class="navbar-top">
+            <div class="container">
+                <login-access></login-access>
+            </div>
+        </div>
+        <div class="navbar-panel" ng-controller="NavbarController as vm">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a href="/ "><img class="logo " src="../images/logo.png " /></a>
+                </div>
+                <ul class="nav navbar-nav navbar-left">
+                    <li ng-class="{ 'active': vm.isCurrent(r)} " ng-repeat="r in vm.navRoutes ">
+                        <a ui-sref="{{r.name}} " ng-bind-html="r.settings.content "></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class=" hidden-sm hidden-md hidden-lg navbar-fixed-top responsive" >
+        <div ng-click="arrow = !arrow" ng-class="{'hamburger': !arrow, 'arrow-left': arrow}" class="nav-toggle">
+            <span></span>
+        </div>
+        <div class="sidebar-left" ng-class="{'show' : arrow }" ng-controller="NavbarController as vm">
+            <ul>
+                <li ng-class="{ 'active': vm.isCurrent(r)} " ng-repeat="r in vm.navRoutes ">
+                    <a ui-sref="{{r.name}} " ng-bind-html="r.settings.content "></a>
+                </li>
+            </ul>
+        </div>
+        <login-access-xs></login-access-xs>
+    </nav>
+    <section>

@@ -1,0 +1,178 @@
+@import 'var';
+#about {
+    #banner {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-image: url("../images/pizza.jpg");
+        background-size: cover;
+        height: 300px;
+    }
+    .about-content {
+        padding: 20px 0px;
+        .info {
+            .image {
+                margin-top: 20px;
+            }
+            .text {
+                padding-left: 0px;
+                text-align: left;
+                hr {
+                    border-bottom: 2px solid #42B574;
+                    width: 50px;
+                    margin-bottom: 27px;
+                    margin-left: 0px;
+                }
+            }
+        }
+        .team {
+            padding: 10px;
+            .title {
+                padding-left: 0px;
+                hr {
+                    border-bottom: 2px solid #42B574;
+                    width: 50px;
+                    margin-bottom: 27px;
+                    margin-left: 0px;
+                }
+            }
+            .cards {
+                padding: 0px;
+                .profile {
+                    padding: 0px;
+                    .profile-image {
+                        padding: 0px;
+                        min-height: 415px;
+                        img {
+                            width: 100%;
+                            height: auto;
+                            max-width: 300px;
+                        }
+                    }
+                    .profile-info {
+                        .header {
+                            h4 {
+                                font-weight: bold;
+                            }
+                            p {
+                                color: grey;
+                            }
+                            hr {
+                                border-bottom: 2px solid #42B574;
+                                width: 50px;
+                                margin-bottom: 27px;
+                                margin-left: 0px;
+                            }
+                        }
+                        .body {
+                            p {
+                                color: grey;
+                            }
+                        }
+                        .footer {
+                            padding-top: 20px;
+                            .social-network {
+                                list-style: none;
+                                display: inline;
+                                margin-left: 0 !important;
+                                padding: 0;
+                                li {
+                                    display: inline;
+                                    margin: 0 5px;
+                                    .icoFacebook:hover {
+                                        background-color: #3B5998;
+                                    }
+                                    .icoGoogle:hover {
+                                        background-color: #BD3518;
+                                    }
+                                    .icoLinkedin:hover {
+                                        background-color: #007bb7;
+                                    }
+                                    a {
+                                        background-color: #D3D3D3;
+                                    }
+                                }
+                            }
+                            .social-circle {
+                                li {
+                                    a {
+                                        display: inline-block;
+                                        position: relative;
+                                        margin: 0 auto 0 auto;
+                                        -moz-border-radius: 50%;
+                                        -webkit-border-radius: 50%;
+                                        border-radius: 50%;
+                                        text-align: center;
+                                        width: 50px;
+                                        height: 50px;
+                                        font-size: 20px;
+                                        &:hover {
+                                            -moz-transform: rotate(360deg);
+                                            -webkit-transform: rotate(360deg);
+                                            -ms--transform: rotate(360deg);
+                                            transform: rotate(360deg);
+                                            -webkit-transition: all 0.2s;
+                                            -moz-transition: all 0.2s;
+                                            -o-transition: all 0.2s;
+                                            -ms-transition: all 0.2s;
+                                            transition: all 0.2s;
+                                        }
+                                    }
+                                }
+                                i {
+                                    margin: 0;
+                                    line-height: 50px;
+                                    text-align: center;
+                                    color: #fff;
+                                    -webkit-transition: all 0.8s;
+                                    -moz-transition: all 0.8s;
+                                    -o-transition: all 0.8s;
+                                    -ms-transition: all 0.8s;
+                                    transition: all 0.8s;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*Responsive*/
+
+
+/* Landscape phone to portrait tablet */
+
+@media (max-width: 767px) {
+    #about {
+        #banner {
+            height: 100px;
+        }
+        .container {
+            padding: 0px;
+            .about-content{
+                .info{
+                    .image{
+                        padding:0px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* Portrait tablet to landscape and desktop */
+
+@media (min-width: 768px) and (max-width: 979px) {
+    #contact {
+        #banner {
+            height: 200px;
+        }
+    }
+}
+
+
+/* Large desktop */
+
+@media (min-width: 1200px) {}

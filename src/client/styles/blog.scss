@@ -1,0 +1,128 @@
+@import 'var';
+#blog {
+    #banner {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-image: url("../images/pizza.jpg");
+        background-size: cover;
+        height: 300px;
+    }
+    .blog-content {
+        padding: 20px 0px;
+        .posts-content {
+            padding: 40px 0px;
+            .wrapper-post {
+                padding: 15px 15px;
+                .post {
+                    box-shadow: 0 3px 11px 0 rgba(0, 0, 0, 0.15);
+                    .post-content {
+                        background-color: #fff;
+                        text-align: left;
+                        padding: 20px;
+                        .date {
+                            font-style: italic;
+                            color: #7a7a7a;
+                            padding: 10px 0px;
+                        }
+                        .tags {
+                            .list-inline {
+                                padding-left: 0;
+                                list-style: none;
+                                .text-middle {
+                                    vertical-align: middle;
+                                    .label-success {
+                                        padding: 8px 12px !important;
+                                        background-color: $primary;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .search-content {
+            padding-top: 31px;
+            .aside {
+                hr {
+                    border-bottom: 2px solid #42B574;
+                    width: 50px;
+                    margin-bottom: 27px;
+                    margin-left: 0px;
+                }
+                .form-group {
+                    .form-search-input {
+                        padding: 20px;
+                        padding-right: 35px;
+                        border-color: $primary;
+                    }
+                }
+                .form-search-submit {
+                    position: absolute;
+                    font-size: 20px;
+                    right: 21px;
+                    top: 111px;
+                    bottom: 0;
+                    padding: 0;
+                    background: none;
+                    border: none;
+                    box-shadow: none;
+                    color: #434345;
+                    transition: .3s all ease;
+                    &:focus {
+                        color: $primary;
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/*Responsive*/
+
+
+/* Landscape phone to portrait tablet */
+
+@media (max-width: 767px) {
+    #blog {
+        #banner {
+            height: 100px;
+        }
+        .blog-content {
+            padding: 0px;
+            .search-content {
+                padding: 0px;
+                .aside {
+                    .form-search-submit {
+                        top: 78px;
+                        right: 7px;
+                    }
+                }
+            }
+            .posts-content {
+                padding: 20px 0px;
+                .wrapper-post {
+                    padding: 15px 0px;
+                }
+            }
+        }
+    }
+}
+
+
+/* Portrait tablet to landscape and desktop */
+
+@media (min-width: 768px) and (max-width: 979px) {
+    #blog {
+        #banner {
+            height: 200px;
+        }
+    }
+}
+
+
+/* Large desktop */
+
+@media (min-width: 1200px) {}

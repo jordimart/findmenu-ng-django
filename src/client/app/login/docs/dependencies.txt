@@ -1,0 +1,29 @@
+Dependencias:
+
+"angular-animate": "^1.6.3",
+"angular-bootstrap": "^1.2.5",
+"bootstrap-social": "^5.1.1",
+
+Dependencias en Core:
+
+ngAnimate
+ngCookies
+ui.bootstrap
+
+Funcionamiento:
+
+El módulo de login nace desde una directiva que nos permite abrir un modal con el cual accedemos a la parte del login.
+Para que funcione debemos añadir la etiqueta <login-access></login-access> en el html y ya será funcional. El template se cambiará dependiendo del proyecto pero la lógica esta integrada.
+
+Ficheros que hayque añadir:
+
+carpeta 18n/login/en.json,es.json,ca.json
+styles login.scss
+
+Ficheros a personalizar:
+
+login/:
+
+directives/login-access-xs.html, login-access.html
+login.html
+profile.html

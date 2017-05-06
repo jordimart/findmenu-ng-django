@@ -1,0 +1,156 @@
+@import 'var';
+#home {
+    .image-wrapper {
+        background: url('../images/salad.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+        display: table;
+        width: 100%;
+        height: 700px;
+        .image-content {
+            margin-top: 10%;
+            .info-text {
+                padding: 0 80px;
+                color: white;
+                text-shadow: 2px 1px 3px #000;
+                h1 {
+                    font-weight: bold;
+                }
+            }
+            .card-search {
+                font-weight: bold;
+                padding: 20px 55px;
+                color: white;
+                background-color: rgba(10, 25, 35, 0.7);
+                .btn-success {
+                    background-color: #42B574;
+                    border-color: #42B574;
+                }
+            }
+        }
+    }
+    .home-content {
+        .last-menus {
+            padding: 40px 0px 20px 0px;
+        }
+        .last-menus,
+        .best-menus {
+            .title {
+                text-align: center;
+                hr {
+                    border-bottom: 2px solid #42B574;
+                    width: 50%;
+                }
+            }
+            .slick-container {
+                width: auto;
+                margin: auto;
+                padding: 15px;
+                .slick-item {
+                    width: 300px;
+                    .card {
+                        margin: 0px 5px;
+                        .image {
+                            img {
+                                min-height: 253px !important;
+                            }
+                        }
+                        .info {
+                            h3 {
+                                margin-top: 10px;
+                                padding-left: 14px;
+                            }
+                            ul {
+                                list-style: none;
+                                padding: 0px;
+                            }
+                        }
+                        .btn {
+                            background-color: #42B574;
+                            border-color: #42B574;
+                            margin-left: 14px;
+                        }
+                    }
+                }
+            }
+        }
+        .last-post {
+            padding: 20px 0px 40px 0px;
+            hr {
+                border-bottom: 2px solid #42B574;
+                width: 100%;
+            }
+            .slick-container {
+                width: auto;
+                margin: auto;
+                padding: 15px;
+                .slick-item {
+                    width: 300px;
+                    article {
+                        .image {
+                            max-width: 250px;
+                            height: 180px;
+                        }
+                        .btn {
+                            background-color: #42B574;
+                            border-color: #42B574;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/*Responsive*/
+
+
+/* Landscape phone to portrait tablet */
+
+@media (max-width: 767px) {
+    #home {
+        .image-wrapper {
+            .image-content {
+                .card-search {
+                    margin-top: 50px;
+                    padding: 20px 25px;
+                }
+            }
+        }
+        .home-content {
+            .container {
+                padding: 0px;
+                h1 {
+                    text-align: center !important;
+                    font-size: 30px !important;
+                }
+                .last-post {
+                    .slick-container {
+                        padding: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* Portrait tablet to landscape and desktop */
+
+@media (min-width: 768px) and (max-width: 979px) {
+    #home {
+        .image-wrapper {
+            .image-content {
+                .info-text {
+                    padding: 60px 0px;
+                }
+            }
+        }
+    }
+}
+
+
+/* Large desktop */
+
+@media (min-width: 1200px) {}

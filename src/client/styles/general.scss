@@ -1,0 +1,182 @@
+@import "var";
+
+
+a{
+    text-decoration:none;
+    &:hover{
+        text-decoration:none;
+    }
+}
+
+/*Stilo de la barra de navegación principal*/
+
+#navbar-main {
+    .desktop {
+        background-color: #0a1923;
+        border-color: #0a1923;
+        .navbar-panel {
+            .navbar-brand {
+                padding-left: 5px;
+                .logo {
+                    width: 165px;
+                    height: 35px;
+                }
+            }
+            .navbar-nav {
+                .active {
+                    a {
+                        background-color: transparent;
+                    }
+                    a:after {
+                        border-bottom: 2px solid #42B574;
+                        content: '';
+                        position: absolute;
+                        bottom: 0px;
+                        left: 25%;
+                        width: 50%;
+                    }
+                }
+                li {
+                    padding-top: 8px;
+                    padding-bottom: 14px;
+                    a {
+                        padding-bottom: 6px;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    .responsive {
+        background-color: #0a1923;
+        height: 50px;
+        margin-top: 0px;
+        .nav-toggle {
+            background: none;
+            border: 0;
+            cursor: pointer;
+            display: block;
+            line-height: 1;
+            margin: 15px 15px;
+            position: relative;
+            width: 26px;
+            span,
+            span:before,
+            span:after {
+                background-color: $primary;
+                height: 4px;
+                position: absolute;
+                right: 0;
+                top: 0;
+                transform: translateY(7px);
+                transition: all 0.5s ease;
+                width: 25px;
+            }
+            span:before,
+            span:after {
+                content: '';
+                transform: translateY(0);
+            }
+        }
+        .hamburger {
+            span {
+                &:before {
+                    transform: translateY(-7px);
+                }
+                &:after {
+                    transform: translateY(7px);
+                }
+            }
+        }
+        .arrow-left {
+            span {
+                transform: rotate(180deg) translateY(-7px) translateX(0);
+                &:before,
+                &:after {
+                    width: 15px;
+                }
+                &:before {
+                    transform: rotate(-45deg) translateY(6px) translateX(0);
+                }
+                &:after {
+                    transform: rotate(45deg) translateY(-6px) translateX(0);
+                }
+            }
+        }
+        .sidebar-left {
+            top: 50px;
+            float: left;
+            background: #0a1923;
+            color: $primary;
+            position: absolute;
+            left: -150px;
+            width: 150px;
+            transition: .5s left, .5s border-top;
+            z-index: 50;
+            border-top: none;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .14), 0 4px 5px 0 rgba(0, 0, 0, .098), 0 1px 10px 0 rgba(0, 0, 0, .084);
+            ul {
+                padding-left: 0;
+                list-style: none;
+                li {
+                    a {
+                        display: block;
+                        background: #0a1923;
+                        color: $primary;
+                        font-size: 14px;
+                        padding-left: 20px;
+                        padding-top: 5px;
+                        padding-bottom: 5px;
+                        text-decoration: none;
+                        text-transform: capitalize;
+                        line-height: 2.4em;
+                        font-weight: 600;
+                        transition: all 50s cubic-bezier(.55, 0, .55, .2);
+                        transition-duration: .1s;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#footer {
+    background-color: #0a1923;
+    padding: 5px 0px;
+    .copyright {
+        color: #42B574;
+        border-top: 1px solid grey;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .social-login {
+            padding: 10px;
+            margin: 0px;
+            text-align: right;
+            i {
+                color: #42B574 !important;
+            }
+        }
+        .text {
+            padding-top: 10px !important;
+        }
+    }
+}
+
+
+/*Responsive*/
+
+
+/* Landscape phone to portrait tablet */
+
+@media (max-width: 767px) {}
+
+
+/* Portrait tablet to landscape and desktop */
+
+@media (min-width: 768px) and (max-width: 979px) {}
+
+
+/* Large desktop */
+
+@media (min-width: 1200px) {}

@@ -1,0 +1,106 @@
+@import 'var';
+#restaurants {
+    #banner {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-image: url("../images/pizza.jpg");
+        background-size: cover;
+        height: 300px;
+    }
+    .navbar {
+        margin-bottom: 0px;
+        border-radius: 0px;
+        background-color: #0a1923;
+        border-color: #0a1923;
+        .container-fluid{
+            .btn-group{
+                .btn.active {
+                        background-color:orange;
+                        border-color: orange;
+                    }      
+            }
+        }
+    }
+    #restaurants-map {
+        .ng-map-info-window {
+                width: 71px !important;
+                background-color: #239df8;
+                color: #fff;
+                //padding: 10px 20px !important;
+                border-radius: 50px;
+                text-align:center;
+                span{
+                    font-size:16px;
+                }
+            }
+        ng-map {
+            height: 100vh;
+            span{
+                    font-size:16px;
+                    margin-bottom:10px;
+                    
+                }
+                .label{
+                    padding: .2em 1.6em 0.3em !important;
+                }
+                .gm-style{
+                    img{
+                        margin-top:10px;
+                    }
+                }
+        }
+    }
+    .content-list {
+        
+        .cards {
+            padding: 30px 0px;
+            .card {
+                margin: 10px 5px;
+                box-shadow: 0 3px 11px 0 rgba(0, 0, 0, 0.15);
+                .image {
+                    img {
+                        min-height: 253px !important;
+                    }
+                }
+                .info {
+                    h3 {
+                        margin-top: 10px;
+                        padding-left: 14px;
+                    }
+                    ul {
+                        list-style: none;
+                        padding: 0px;
+                    }
+                }
+                .btn {
+                    background-color: #42B574;
+                    border-color: #42B574;
+                    margin-left: 14px;
+                }
+            }
+        }
+    }
+}
+
+/*Responsive*/
+
+
+/* Landscape phone to portrait tablet */
+
+@media (max-width: 767px) {
+     #restaurants {
+        #banner {
+            height: 100px;
+        }
+     }
+}
+
+
+/* Portrait tablet to landscape and desktop */
+
+@media (min-width: 768px) and (max-width: 979px) {}
+
+
+/* Large desktop */
+
+@media (min-width: 1200px) {}

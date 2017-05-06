@@ -1,0 +1,152 @@
+<section id="home">
+
+    <div class="image-wrapper">
+        <section class="image-content">
+            <div class="container">
+                <div class="col-md-8 info-text hidden-xs">
+                    <h1>RECUERDA Y COMPARTE DONDE HAS ENCONTRADO EL MEJOR MENU</h1>
+                    <p>Con Findmenu prodrás recordar en que lugares comiste bien a precio de menu, además podrás compartirlo y dejar que tus amigos visiten tus lugares favoritos o visitar los suyos cuando te haga falta.
+                </div>
+                <div class="col-md-4 card-search">
+                    <h3>¿Donde vas a comer?</h3>
+                    <br>
+                    <form>
+                        <div class="form-group">
+                            <a href="/restaurants/map">
+                            <button type="button" class="btn btn-block btn-warning">Cerca de ti <i class="fa fa-map-marker" aria-hidden="true"></i></button>
+                            </a>
+                            <br>
+                            
+                            <label for="sel1">Población:</label>
+                            <select class="form-control" id="sel1">
+                            <option>Madrid</option>
+                            <option>Barcelona</option>
+                            <option>Valencia</option>
+                            <option>Ontinyent</option>
+                        </select>
+                            <br>
+                            <label for="sel2">Tipo:</label>
+                            <select class="form-control" id="sel2">
+                            <option>Almuerzo</option>
+                            <option>Comida</option>
+                            <option>Cena</option>
+                        </select>
+                            <br>
+                            <label for="sel3">Precio máximo:</label>
+                            <select class="form-control" id="sel3">
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                        </select>
+                            <br>
+                            <button type="button" class="btn btn-success">Buscar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="home-content">
+        <div class="container">
+            <section class="last-menus">
+                <div class="title"><h1>Sugerencias</h1>
+                <hr>
+                </div>
+                
+                <div class="slick-container">
+                    <slick infinite=true slides-to-show=3 slides-to-scroll=1 autoplay=true autoplaySpeed=4000 arrows=false mobileFirst=true responsive=vm.breakpoints>
+                        <div class="slick-item" ng-repeat="card in vm.cards">
+                            <article class="card">
+                                <div class="image">
+                                    <img class="img-responsive" src="{{ card.image }}" />
+                                </div>
+                                <div class="info">
+                                    <h3>Nombre del restaurante</h3>
+                                    <div>
+                                    <div class="col-md-6 col-xs-6">
+                                        <ul>
+                                            <li>almuerzo: {{card.breackfast_price}} euros</li>
+                                            <li>comida: {{card.lunch.price}} euros</li>
+                                            <li>cena: {{card.dinner_price}} euros</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 col-xs-6">
+                                        <ul>
+                                            <li>{{card.city}}</li>
+                                            <li>{{card.valoration}}</li>
+                                            <li>{{card.num_reviews}} opin.</li>
+                                        </ul>
+                                    </div>
+                                    </div>
+                                    <button type="button" class="btn btn-success">Detalles</button>
+                                </div>
+                            </article>
+                        </div>
+                    </slick>
+                </div>
+            </section>
+            <section class="best-menus ">
+                <div class="title"><h1>Ranking de favoritos</h1>
+                <hr>
+                </div>
+                <div class="slick-container">
+                    <slick infinite=true slides-to-show=3 slides-to-scroll=1 autoplay=true autoplaySpeed=4000 arrows=false mobileFirst=true responsive=vm.breakpoints>
+                        <div class="slick-item" ng-repeat="card in vm.cards">
+                            <article class="card">
+                                <div class="image">
+                                    <img class="img-responsive" src="{{ card.image }}" />
+                                </div>
+
+                                <div class="info">
+                                    <h3>Nombre del restaurante</h3>
+                                    <div class="col-md-6 col-xs-6">
+                                        <ul>
+                                            <li>almuerzo: {{card.breackfast_price}} euros</li>
+                                            <li>comida: {{card.lunch.price}} euros</li>
+                                            <li>cena: {{card.dinner_price}} euros</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 col-xs-6">
+                                        <ul>
+                                            <li>{{card.city}}</li>
+                                            <li>{{card.valoration}}</li>
+                                            <li>{{card.users}} usuarios.</li>
+                                        </ul>
+                                    </div>
+                                    <button type="button" class="btn btn-success">Detalles</button>
+                                </div>
+                            </article>
+                        </div>
+                    </slick>
+                </div>
+            </section>
+            <section class="last-post">
+                <div class="title"><h1>Últimas noticias</h1>
+                <hr>
+                <div class="title">
+                <div class="slick-container">
+                    <slick infinite=true slides-to-show=2 slides-to-scroll=1 autoplay=true autoplaySpeed=4000 arrows=false mobileFirst=true responsive=vm.breakpoints>
+                        <div class="slick-item" ng-repeat="post in vm.posts">
+                            <article class="post">
+                                <div class="col-md-6">
+                                    <img  class="img-responsive" src="{{post.image}}" />
+                                </div>
+                                <div class="col-md-6">
+                                    <h3>{{post.name}}</h3>
+                                    <p>{{post.text_resume}} </p>
+                                    <button type="button" class="btn btn-success">Saber más</button>
+                                </div>
+                            </article>
+                        </div>
+                    </slick>
+                </div>
+
+            </section>
+        </div>
+    </div>
+</section>

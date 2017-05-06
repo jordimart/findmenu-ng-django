@@ -1,0 +1,23 @@
+<!--<ul class="nav navbar-nav pull-right">
+        <li><button id='logout' ng-show="logoutV" class="nav-button" ng-click='vm.logout()' translate="SING OUT"></button></li>
+        <li><button id='acceder' ng-show="accederV" class="nav-button" ng-click="vm.showModalSignup()" translate="SING IN"></button></li>
+        <li><a id='profile' ng-show="profileV" href='/profile' class="profile" translate="WELCOME"> </a></li>
+        <li><img src="{{avatar}}" /></li>
+</ul>-->
+<ul class="nav navbar-nav navbar-left">
+        <li><a ng-show="accederV" ng-click="vm.showLogin()"><span class="glyphicon glyphicon-log-in navbar-btn"></span> Entrar</a></li>
+        <li><a ng-show="logoutV" class="nav-button navbar-btn" ng-click='vm.logout()' ><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
+        <li><a ng-show="profileV" href='/profile' class="profile navbar-btn">Bienvenido: {{user}}</a></li>
+        <!--<li><img src="{{avatar}}" /></li>-->
+</ul>
+<ul class="social-login nav navbar-nav navbar-right">
+        <li>
+                <a href="# " ng-show="accederV"><i class="fa fa-facebook" aria-hidden="true "></i></a>
+        </li>
+        <li>
+                <a href="# " ng-show="accederV"><i class="fa fa-twitter" aria-hidden="true "></i></a>
+        </li>
+        <li>
+                <a href="# " ng-show="accederV"><i class="fa fa-google-plus" aria-hidden="true "></i></a>
+        </li>
+</ul>

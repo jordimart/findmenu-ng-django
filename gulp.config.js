@@ -13,7 +13,20 @@ module.exports = function() {
     var bower = {
         json: require('./bower.json'),
         directory: './bower_components/',
-        ignorePath: '../..'
+        ignorePath: '../..',
+        fileTypes: {
+            html: {
+                block: /(([ \t]*)<!--\s*bower:*(\S*)\s*-->)(\n|\r|.)*?(<!--\s*endbower\s*-->)/gi,
+                detect: {
+                    js: /<script.*src=['"]([^']+)/gi,
+                    css: /<link.*href=['"]([^']+)/gi
+                },
+                replace: {
+                    js: '<script src="{% static \'{{filePath}}\' %}"></script>',
+                    css: '<link rel="stylesheet" href="{% static \'{{filePath}}\' %}" />'
+                }
+            }
+        }
     };
     var nodeModules = 'node_modules';
 
@@ -29,7 +42,7 @@ module.exports = function() {
         build: './build/',
         client: client,
         css: temp + '*.css',
-        fonts: [ bower.directory + 'font-awesome/fonts/**/*.*',bower.directory + 'bootstrap/fonts/**/*.*' ],
+        fonts: [bower.directory + 'font-awesome/fonts/**/*.*', bower.directory + 'bootstrap/fonts/**/*.*'],
         html: client + '**/*.html',
         htmltemplates: clientApp + '**/*.html',
         images: client + 'images/**/*.*',
@@ -139,7 +152,9 @@ module.exports = function() {
         var options = {
             bowerJson: config.bower.json,
             directory: config.bower.directory,
-            ignorePath: config.bower.ignorePath
+            ignorePath: config.bower.ignorePath,
+            fileTypes: config.bower.fileTypes,
+
         };
         return options;
     };

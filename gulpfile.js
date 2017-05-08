@@ -183,7 +183,8 @@ gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function() {
         .pipe(replace('.js"', '.js\' %}"'))
         .pipe(replace('href="/.tmp', 'href="{% static \' /.tmp'))
         .pipe(replace('.css"', '.css \' %}"'))
-        .pipe(gulp.dest(config.client));
+
+    .pipe(gulp.dest(config.client));
 });
 
 /**
@@ -288,6 +289,11 @@ gulp.task('optimize', ['inject'], function() {
         .pipe($.useref())
         // Replace the file names in the html with rev numbers
         .pipe($.revReplace())
+        //Insert django tags into de build index
+        .pipe(replace('src="js', 'src="{% static \'js'))
+        .pipe(replace('.js"', '.js\' %}"'))
+        .pipe(replace('href="styles', 'href="{% static \' styles'))
+        .pipe(replace('.css"', '.css \' %}"'))
         .pipe(gulp.dest(config.build));
 });
 

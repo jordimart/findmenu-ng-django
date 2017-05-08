@@ -10,6 +10,7 @@ var _ = require('lodash');
 var $ = require('gulp-load-plugins')({
     lazy: true
 });
+var replace = require('gulp-replace');
 
 var colors = $.util.colors;
 var envenv = $.util.env;
@@ -177,6 +178,11 @@ gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function() {
     return gulp
         .src(config.index)
         .pipe(inject(config.css))
+        /*Only for django*/
+        .pipe(replace('src="/src', 'src="{% static \'/src'))
+        .pipe(replace('.js"', '.js\' %}"'))
+        .pipe(replace('href="/.tmp', 'href="{% static \' /.tmp'))
+        .pipe(replace('.css"', '.css \' %}"'))
         .pipe(gulp.dest(config.client));
 });
 

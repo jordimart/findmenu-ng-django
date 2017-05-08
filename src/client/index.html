@@ -31,14 +31,14 @@
 
     <!-- build:css styles/app.css -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="/.tmp/about.css">
-    <link rel="stylesheet" href="/.tmp/blog.css">
-    <link rel="stylesheet" href="/.tmp/contact.css">
-    <link rel="stylesheet" href="/.tmp/general.css">
-    <link rel="stylesheet" href="/.tmp/home.css">
-    <link rel="stylesheet" href="/.tmp/login.css">
-    <link rel="stylesheet" href="/.tmp/restaurants.css">
-    <link rel="stylesheet" href="/.tmp/var.css">
+    <link rel="stylesheet" href="{% static ' /.tmp/about.css ' %}">
+    <link rel="stylesheet" href="{% static ' /.tmp/blog.css ' %}">
+    <link rel="stylesheet" href="{% static ' /.tmp/contact.css ' %}">
+    <link rel="stylesheet" href="{% static ' /.tmp/general.css ' %}">
+    <link rel="stylesheet" href="{% static ' /.tmp/home.css ' %}">
+    <link rel="stylesheet" href="{% static ' /.tmp/login.css ' %}">
+    <link rel="stylesheet" href="{% static ' /.tmp/restaurants.css ' %}">
+    <link rel="stylesheet" href="{% static ' /.tmp/var.css ' %}">
     <!-- endinject -->
     <!-- endbuild -->
 
@@ -79,52 +79,99 @@
 
     <!-- build:js js/app.js -->
     <!-- inject:js -->
-    <script src="/src/client/app/app.module.js"></script>
-    <script src="/src/client/app/about/about.module.js"></script>
-    <script src="/src/client/app/blocks/exception/exception.module.js"></script>
-    <script src="/src/client/app/blocks/logger/logger.module.js"></script>
-    <script src="/src/client/app/blocks/mockdata/mockdata.module.js"></script>
-    <script src="/src/client/app/blocks/router/router.module.js"></script>
-    <script src="/src/client/app/blog/blog.module.js"></script>
-    <script src="/src/client/app/contact/contact.module.js"></script>
-    <script src="/src/client/app/core/core.module.js"></script>
-    <script src="/src/client/app/home/home.module.js"></script>
-    <script src="/src/client/app/layout/layout.module.js"></script>
-    <script src="/src/client/app/login/login-services/cookies/cookies.module.js"></script>
-    <script src="/src/client/app/login/login-services/headerservice/header.module.js"></script>
-    <script src="/src/client/app/login/login.module.js"></script>
-    <script src="/src/client/app/restaurants/restaurants.module.js"></script>
-    <script src="/src/client/app/widgets/widgets.module.js"></script>
-    <script src="/src/client/app/about/about.controller.js"></script>
-    <script src="/src/client/app/about/about.route.js"></script>
-    <script src="/src/client/app/blocks/exception/exception-handler.provider.js"></script>
-    <script src="/src/client/app/blocks/exception/exception.js"></script>
-    <script src="/src/client/app/blocks/logger/logger.js"></script>
-    <script src="/src/client/app/blocks/mockdata/mockdata.js"></script>
-    <script src="/src/client/app/blocks/router/router-helper.provider.js"></script>
-    <script src="/src/client/app/blog/blog.controller.js"></script>
-    <script src="/src/client/app/blog/blog.route.js"></script>
-    <script src="/src/client/app/contact/contact.controller.js"></script>
-    <script src="/src/client/app/contact/contact.route.js"></script>
-    <script src="/src/client/app/core/config.js"></script>
-    <script src="/src/client/app/core/constants.js"></script>
-    <script src="/src/client/app/core/core.route.js"></script>
-    <script src="/src/client/app/core/dataservice.js"></script>
-    <script src="/src/client/app/home/home.controller.js"></script>
-    <script src="/src/client/app/home/home.route.js"></script>
-    <script src="/src/client/app/layout/navbar.controller.js"></script>
-    <script src="/src/client/app/layout/shell.controller.js"></script>
-    <script src="/src/client/app/login/directives/login-access-xs.directive.js"></script>
-    <script src="/src/client/app/login/directives/login-access.directive.js"></script>
-    <script src="/src/client/app/login/login-services/cookies/cookies.js"></script>
-    <script src="/src/client/app/login/login-services/headerservice/header.service.js"></script>
-    <script src="/src/client/app/login/login.controller.js"></script>
-    <script src="/src/client/app/login/login.route.js"></script>
-    <script src="/src/client/app/login/profile.controller.js"></script>
-    <script src="/src/client/app/login/socialController.js"></script>
-    <script src="/src/client/app/restaurants/filters-restaurants.factory.js"></script>
-    <script src="/src/client/app/restaurants/restaurants.controller.js"></script>
-    <script src="/src/client/app/restaurants/restaurants.route.js"></script>
+
+    <script src="{% static '/src/client/app/app.module.js' %}"></script>
+
+    <script src="{% static '/src/client/app/about/about.module.js' %}"></script>
+
+    <script src="{% static '/src/client/app/blocks/exception/exception.module.js' %}"></script>
+
+    <script src="{% static '/src/client/app/blocks/logger/logger.module.js' %}"></script>
+
+    <script src="{% static '/src/client/app/blocks/mockdata/mockdata.module.js' %}"></script>
+
+    <script src="{% static '/src/client/app/blocks/router/router.module.js' %}"></script>
+
+    <script src="{% static '/src/client/app/blog/blog.module.js' %}"></script>
+
+    <script src="{% static '/src/client/app/contact/contact.module.js' %}"></script>
+
+    <script src="{% static '/src/client/app/core/core.module.js' %}"></script>
+
+    <script src="{% static '/src/client/app/home/home.module.js' %}"></script>
+
+    <script src="{% static '/src/client/app/layout/layout.module.js' %}"></script>
+
+    <script src="{% static '/src/client/app/login/login-services/cookies/cookies.module.js' %}"></script>
+
+    <script src="{% static '/src/client/app/login/login-services/headerservice/header.module.js' %}"></script>
+
+    <script src="{% static '/src/client/app/login/login.module.js' %}"></script>
+
+    <script src="{% static '/src/client/app/restaurants/restaurants.module.js' %}"></script>
+
+    <script src="{% static '/src/client/app/widgets/widgets.module.js' %}"></script>
+
+    <script src="{% static '/src/client/app/about/about.controller.js' %}"></script>
+
+    <script src="{% static '/src/client/app/about/about.route.js' %}"></script>
+
+    <script src="{% static '/src/client/app/blocks/exception/exception-handler.provider.js' %}"></script>
+
+    <script src="{% static '/src/client/app/blocks/exception/exception.js' %}"></script>
+
+    <script src="{% static '/src/client/app/blocks/logger/logger.js' %}"></script>
+
+    <script src="{% static '/src/client/app/blocks/mockdata/mockdata.js' %}"></script>
+
+    <script src="{% static '/src/client/app/blocks/router/router-helper.provider.js' %}"></script>
+
+    <script src="{% static '/src/client/app/blog/blog.controller.js' %}"></script>
+
+    <script src="{% static '/src/client/app/blog/blog.route.js' %}"></script>
+
+    <script src="{% static '/src/client/app/contact/contact.controller.js' %}"></script>
+
+    <script src="{% static '/src/client/app/contact/contact.route.js' %}"></script>
+
+    <script src="{% static '/src/client/app/core/config.js' %}"></script>
+
+    <script src="{% static '/src/client/app/core/constants.js' %}"></script>
+
+    <script src="{% static '/src/client/app/core/core.route.js' %}"></script>
+
+    <script src="{% static '/src/client/app/core/dataservice.js' %}"></script>
+
+    <script src="{% static '/src/client/app/home/home.controller.js' %}"></script>
+
+    <script src="{% static '/src/client/app/home/home.route.js' %}"></script>
+
+    <script src="{% static '/src/client/app/layout/navbar.controller.js' %}"></script>
+
+    <script src="{% static '/src/client/app/layout/shell.controller.js' %}"></script>
+
+    <script src="{% static '/src/client/app/login/directives/login-access-xs.directive.js' %}"></script>
+
+    <script src="{% static '/src/client/app/login/directives/login-access.directive.js' %}"></script>
+
+    <script src="{% static '/src/client/app/login/login-services/cookies/cookies.js' %}"></script>
+
+    <script src="{% static '/src/client/app/login/login-services/headerservice/header.service.js' %}"></script>
+
+    <script src="{% static '/src/client/app/login/login.controller.js' %}"></script>
+
+    <script src="{% static '/src/client/app/login/login.route.js' %}"></script>
+
+    <script src="{% static '/src/client/app/login/profile.controller.js' %}"></script>
+
+    <script src="{% static '/src/client/app/login/socialController.js' %}"></script>
+
+    <script src="{% static '/src/client/app/restaurants/filters-restaurants.factory.js' %}"></script>
+
+    <script src="{% static '/src/client/app/restaurants/restaurants.controller.js' %}"></script>
+
+    <script src="{% static '/src/client/app/restaurants/restaurants.route.js' %}"></script>
+
     <!-- endinject -->
 
     <!-- inject:templates:js -->

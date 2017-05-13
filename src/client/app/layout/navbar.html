@@ -31,7 +31,7 @@
         </div>
     </nav>-->
 
-    <nav class="navbar navbar-default navbar-fixed-top hidden-xs desktop" >
+    <nav class="navbar navbar-default navbar-fixed-top hidden-xs desktop">
         <div class="navbar-top">
             <div class="container">
                 <login-access></login-access>
@@ -40,7 +40,7 @@
         <div class="navbar-panel" ng-controller="NavbarController as vm">
             <div class="container">
                 <div class="navbar-brand">
-                    <a href="/ "><img class="logo " src="../images/logo.png " /></a>
+                    <a href="/ "><img class="logo " src="static/images/logo.png " /></a>
                 </div>
                 <ul class="nav navbar-nav navbar-left">
                     <li ng-class="{ 'active': vm.isCurrent(r)} " ng-repeat="r in vm.navRoutes ">
@@ -50,7 +50,7 @@
             </div>
         </div>
     </nav>
-    <nav class=" hidden-sm hidden-md hidden-lg navbar-fixed-top responsive" >
+    <nav class=" hidden-sm hidden-md hidden-lg navbar-fixed-top responsive">
         <div ng-click="arrow = !arrow" ng-class="{'hamburger': !arrow, 'arrow-left': arrow}" class="nav-toggle">
             <span></span>
         </div>

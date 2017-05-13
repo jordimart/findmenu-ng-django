@@ -154,7 +154,7 @@ module.exports = function() {
             bowerJson: config.bower.json,
             directory: config.bower.directory,
             ignorePath: config.bower.ignorePath,
-            fileTypes: config.bower.fileTypes,
+            //fileTypes: config.bower.fileTypes,
 
         };
         return options;

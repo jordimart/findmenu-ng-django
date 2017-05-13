@@ -3,7 +3,7 @@
 
     angular
         .module('app.core', [
-            'ngAnimate', 'ngSanitize', 'ngCookies','ui.bootstrap','nya.bootstrap.select',
+            'ngAnimate', 'ngSanitize', 'ngCookies', 'ui.bootstrap', 'nya.bootstrap.select',
             'blocks.exception', 'blocks.logger', 'blocks.router', 'blocks.mockdata',
             'ui.router', 'ngplus', 'pascalprecht.translate', 'slickCarousel',
         ]).factory('MyErrorHandler', function($q, $log) {
@@ -17,5 +17,8 @@
                 console.log('TRANSLATE REFRESH');
                 $translate.refresh();
             });
+        })
+        .run(function($http, $cookies) {
+            $http.defaults.headers.common['X-CSRFToken'] = $cookies.csrftoken;
         });
 })();

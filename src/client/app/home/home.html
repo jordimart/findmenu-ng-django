@@ -13,10 +13,10 @@
                     <form>
                         <div class="form-group">
                             <a href="/restaurants/map">
-                            <button type="button" class="btn btn-block btn-warning">Cerca de ti <i class="fa fa-map-marker" aria-hidden="true"></i></button>
+                                <button type="button" class="btn btn-block btn-warning">Cerca de ti <i class="fa fa-map-marker" aria-hidden="true"></i></button>
                             </a>
                             <br>
-                            
+
                             <label for="sel1">Población:</label>
                             <select class="form-control" id="sel1">
                             <option>Madrid</option>
@@ -54,10 +54,11 @@
     <div class="home-content">
         <div class="container">
             <section class="last-menus">
-                <div class="title"><h1>Sugerencias</h1>
-                <hr>
+                <div class="title">
+                    <h1>Sugerencias</h1>
+                    <hr>
                 </div>
-                
+
                 <div class="slick-container">
                     <slick infinite=true slides-to-show=3 slides-to-scroll=1 autoplay=true autoplaySpeed=4000 arrows=false mobileFirst=true responsive=vm.breakpoints>
                         <div class="slick-item" ng-repeat="card in vm.cards">
@@ -68,20 +69,20 @@
                                 <div class="info">
                                     <h3>Nombre del restaurante</h3>
                                     <div>
-                                    <div class="col-md-6 col-xs-6">
-                                        <ul>
-                                            <li>almuerzo: {{card.breackfast_price}} euros</li>
-                                            <li>comida: {{card.lunch.price}} euros</li>
-                                            <li>cena: {{card.dinner_price}} euros</li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-6 col-xs-6">
-                                        <ul>
-                                            <li>{{card.city}}</li>
-                                            <li>{{card.valoration}}</li>
-                                            <li>{{card.num_reviews}} opin.</li>
-                                        </ul>
-                                    </div>
+                                        <div class="col-md-6 col-xs-6">
+                                            <ul>
+                                                <li>almuerzo: {{card.breackfast_price}} euros</li>
+                                                <li>comida: {{card.lunch.price}} euros</li>
+                                                <li>cena: {{card.dinner_price}} euros</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6 col-xs-6">
+                                            <ul>
+                                                <li>{{card.city}}</li>
+                                                <li>{{card.valoration}}</li>
+                                                <li>{{card.num_reviews}} opin.</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                     <button type="button" class="btn btn-success">Detalles</button>
                                 </div>
@@ -91,8 +92,9 @@
                 </div>
             </section>
             <section class="best-menus ">
-                <div class="title"><h1>Ranking de favoritos</h1>
-                <hr>
+                <div class="title">
+                    <h1>Ranking de favoritos</h1>
+                    <hr>
                 </div>
                 <div class="slick-container">
                     <slick infinite=true slides-to-show=3 slides-to-scroll=1 autoplay=true autoplaySpeed=4000 arrows=false mobileFirst=true responsive=vm.breakpoints>
@@ -126,27 +128,28 @@
                 </div>
             </section>
             <section class="last-post">
-                <div class="title"><h1>Últimas noticias</h1>
-                <hr>
                 <div class="title">
-                <div class="slick-container">
-                    <slick infinite=true slides-to-show=2 slides-to-scroll=1 autoplay=true autoplaySpeed=4000 arrows=false mobileFirst=true responsive=vm.breakpoints>
-                        <div class="slick-item" ng-repeat="post in vm.posts">
-                            <article class="post">
-                                <div class="col-md-6">
-                                    <img  class="img-responsive" src="{{post.image}}" />
+                    <h1>Últimas noticias</h1>
+                    <hr>
+                    <div class="title">
+                        <div class="slick-container">
+                            <slick infinite=true slides-to-show=2 slides-to-scroll=1 autoplay=true autoplaySpeed=4000 arrows=false mobileFirst=true responsive=vm.breakpoints>
+                                <div class="slick-item" ng-repeat="post in vm.posts">
+                                    <article class="post">
+                                        <div class="col-md-6">
+                                            <img class="img-responsive" src="{{post.image}}" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h3>{{post.name}}</h3>
+                                            <p>{{post.text_resume}} </p>
+                                            <button type="button" class="btn btn-success">Saber más</button>
+                                        </div>
+                                    </article>
                                 </div>
-                                <div class="col-md-6">
-                                    <h3>{{post.name}}</h3>
-                                    <p>{{post.text_resume}} </p>
-                                    <button type="button" class="btn btn-success">Saber más</button>
-                                </div>
-                            </article>
+                            </slick>
                         </div>
-                    </slick>
-                </div>
 
             </section>
-        </div>
-    </div>
+            </div>
+            </div>
 </section>

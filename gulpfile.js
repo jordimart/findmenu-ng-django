@@ -179,10 +179,10 @@ gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function() {
         .src(config.index)
         .pipe(inject(config.css))
         /*Only for django*/
-        .pipe(replace('src="/src', 'src="{% static \'/src'))
-        .pipe(replace('.js"', '.js\' %}"'))
-        .pipe(replace('href="/.tmp', 'href="{% static \' /.tmp'))
-        .pipe(replace('.css"', '.css \' %}"'))
+        //.pipe(replace('src="/src', 'src="{% static \'/src'))
+        //.pipe(replace('.js"', '.js\' %}"'))
+        //.pipe(replace('href="/.tmp', 'href="{% static \'/.tmp'))
+        //.pipe(replace('.css"', '.css\' %}"'))
 
     .pipe(gulp.dest(config.client));
 });
@@ -292,8 +292,8 @@ gulp.task('optimize', ['inject'], function() {
         //Insert django tags into de build index
         .pipe(replace('src="js', 'src="{% static \'js'))
         .pipe(replace('.js"', '.js\' %}"'))
-        .pipe(replace('href="styles', 'href="{% static \' styles'))
-        .pipe(replace('.css"', '.css \' %}"'))
+        .pipe(replace('href="styles', 'href="{% static \'styles'))
+        .pipe(replace('.css"', '.css\' %}"'))
         .pipe(gulp.dest(config.build));
 });
 
@@ -420,6 +420,11 @@ gulp.task('bump', function() {
  */
 gulp.task('browserSyncReload', ['optimize'], browserSync.reload);
 
+
+gulp.task('watch', function() {
+    gulp.watch([config.sass, config.js, config.html])
+        .on('change', changeEvent);
+});
 ////////////////
 
 /**

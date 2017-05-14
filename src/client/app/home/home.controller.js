@@ -10,7 +10,7 @@
     function HomeController(logger, $translatePartialLoader, $scope, mockdata, dataservice) {
         var vm = this;
         vm.title = 'Home';
-        vm.cards = mockdata.getMockRestaurants();
+        //vm.cards = mockdata.getMockRestaurants();
         vm.posts = mockdata.getMockPosts();
         vm.breakpoints = [{
             breakpoint: 768,
@@ -33,7 +33,11 @@
         function activate() {
             logger.info('Activated Home View');
             dataservice.get('/restaurants/').then(function(response) {
-                console.log(response);
+                console.log(response.data);
+                vm.cards = response.data;
+            });
+            dataservice.get('/restaurants/1/').then(function(response) {
+                console.log(response.data);
             });
 
         }

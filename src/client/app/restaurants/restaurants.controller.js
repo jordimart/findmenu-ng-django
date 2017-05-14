@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
 
     angular
@@ -14,9 +14,9 @@
         vm.radioModel = 'launch_price';
         vm.userIcon = {
             'scaledSize': [40, 40],
-            'url': "../images/user-icon.png"
+            'url': "static/images/user-icon.png"
         };
-        vm.findmenuIcon = "../images/findmenuGreen.png";
+        vm.findmenuIcon = "static/images/findmenuGreen.png";
         vm.changeTags = changeTags;
         vm.options = mockdata.getMockRestaurants().city;
 

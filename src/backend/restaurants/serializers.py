@@ -5,7 +5,7 @@ from .models import Restaurant
 class RestaurantSerializer(serializers.ModelSerializer):
     class Meta:
         model = Restaurant
-        fields = ('id', 'name', 'image', 'city', 'lat', 'lon', 'valoration', 'review', 'users', 'brackfast_price',
+        fields = ('id', 'name', 'image', 'city', 'lat', 'lon', 'valoration', 'review', 'users', 'breackfast_price',
                   'launch_price', 'dinner_price', 'filters', 'created_at', 'updated_at')
 
     def create(self, validated_data):
@@ -22,7 +22,7 @@ class RestaurantSerializer(serializers.ModelSerializer):
         instance.valoration = validated_data.get('valoration', instance.valoration)
         instance.review = validated_data.get('review', instance.review)
         instance.users = validated_data.get('users', instance.users)
-        instance.breackfast_price = validated_data.get('brackfast_price', instance.brackfast_price)
+        instance.breackfast_price = validated_data.get('breackfast_price', instance.breackfast_price)
         instance.launch_price = validated_data.get('launch_price', instance.launch_price)
         instance.dinner_price = validated_data.get('dinner_price', instance.dinner_price)
         instance.created_at = validated_data.get('created_at', instance.created_at)

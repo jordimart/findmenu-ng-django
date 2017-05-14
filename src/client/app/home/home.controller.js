@@ -5,15 +5,14 @@
         .module('app.home')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['logger', '$translatePartialLoader', '$scope', 'mockdata'];
+    HomeController.$inject = ['logger', '$translatePartialLoader', '$scope', 'mockdata', 'dataservice'];
 
-    function HomeController(logger, $translatePartialLoader, $scope, mockdata) {
+    function HomeController(logger, $translatePartialLoader, $scope, mockdata, dataservice) {
         var vm = this;
         vm.title = 'Home';
         vm.cards = mockdata.getMockRestaurants();
         vm.posts = mockdata.getMockPosts();
-        vm.breakpoints = [
-        {
+        vm.breakpoints = [{
             breakpoint: 768,
             settings: {
                 slidesToShow: 2,
@@ -25,8 +24,7 @@
                 slidesToShow: 1,
                 slidesToScroll: 1
             }
-        }
-    ];
+        }];
 
         $translatePartialLoader.addPart('home');
 
@@ -34,6 +32,9 @@
 
         function activate() {
             logger.info('Activated Home View');
+            dataservice.get('/restaurants/').then(function(response) {
+                console.log(response);
+            });
 
         }
     }

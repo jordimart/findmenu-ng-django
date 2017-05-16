@@ -25,14 +25,38 @@
 
         function SubmitLogin() {
             var data = {
-                'user': vm.loginUser,
+                'email': vm.loginUser,
                 'password': vm.loginPass
             };
+            dataservice.post('/api/v1/auth/login/', data).then(loginSuccessFn, loginErrorFn);
 
+            /**
+             * @name loginSuccessFn
+             * @desc Set the authenticated account and redirect to index
+             */
+            function loginSuccessFn(response) {
+                //Authentication.setAuthenticatedAccount(response.data);
+                logger.success('Usuario autentificado');
+                console.log(response.data);
+                cookiesService.SetCredentials(response.data);
+                console.log(response.data);
+                $uibModalInstance.close();
+                headerService.login();
+            }
+
+            /**
+             * @name loginErrorFn
+             * @desc Log "Epic failure!" to the console
+             */
+            function loginErrorFn(response) {
+                //return response;
+                logger.error(
+                    'Error en las credenciales, el usuario o la contraseña no son correctos');
+            }
             //var dataUserJSON = JSON.stringify(data);
             //dataservice.localSignin(dataUserJSON).then(function(response) {
 
-            if ('admin' === vm.loginUser && 'admin' === vm.loginPass) {
+            /*if ('admin' === vm.loginUser && 'admin' === vm.loginPass) {
                 logger.success('Usuario autentificado');
                 cookiesService.SetCredentials(data);
                 $uibModalInstance.close();
@@ -43,7 +67,7 @@
                 );
             } else {
                 logger.error('Error en el server');
-            }
+            }*/
 
             // }
             //)
@@ -55,28 +79,35 @@
 
             if (vm.registerPass === vm.registerPass2) {
 
-                /*var data = {
-                    'user': vm.registerUser,
+                var data = {
+                    'username': vm.registerUser,
                     'email': vm.registerEmail,
-                    'password': vm.registerPass,
-                    'usertype': 'client'
-                };*/
+                    'password': vm.registerPass
+                        //'usertype': 'client'
+                };
+                dataservice.post('/api/v1/accounts/', data).then(registerSuccessFn, registerErrorFn);
 
-                //var dataUserJSON = JSON.stringify(data);
-                //dataservice.signup(dataUserJSON).then(function(response) {
-                Authentication.register(vm.registerEmail, vm.registerPass, vm.registerUser);
-                /* if ('admin' === vm.registerUser) {
-                     logger.success('Usuario registrado');
-                     $uibModalInstance.close();
-                 } else {
-                     if (response.data === 'name') {
-                         logger.warning('Ya existe un usuario con ese nombre');
+                /**
+                 * @name registerSuccessFn
+                 * @desc Log the new user in
+                 */
+                function registerSuccessFn(data, status, headers, config) {
+                    logger.success('Usuario registrado');
+                    $uibModalInstance.close();
+                }
 
-                     } else if (response.data === 'err') {
-                         logger.error('Error en el server');
-                     }
-                 }*/
-                // });
+                /**
+                 * @name registerErrorFn
+                 * @desc Log "Epic failure!" to the console
+                 */
+                function registerErrorFn(data, status, headers, config) {
+                    console.error('Register failure!');
+                    console.log(data);
+                    console.log(status);
+                    console.log(headers);
+                    console.log(config);
+                    logger.warning('Ya existe un usuario con ese nombre');
+                }
             } else {
                 logger.warning('Los dos passwords deben ser iguales');
 

@@ -10,7 +10,6 @@
     function HomeController(logger, $translatePartialLoader, $scope, mockdata, dataservice) {
         var vm = this;
         vm.title = 'Home';
-        //vm.cards = mockdata.getMockRestaurants();
         vm.posts = mockdata.getMockPosts();
         vm.breakpoints = [{
             breakpoint: 768,

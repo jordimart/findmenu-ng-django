@@ -9,13 +9,13 @@
         .module('authentication')
         .factory('Authentication', Authentication);
 
-    Authentication.$inject = ['$cookies', '$http'];
+    Authentication.$inject = ['$cookies', '$http', 'dataservice'];
 
     /**
      * @namespace Authentication
      * @returns {Factory}
      */
-    function Authentication($cookies, $http) {
+    function Authentication($cookies, $http, dataservice) {
         /**
          * @name Authentication
          * @desc The Factory to be returned
@@ -42,9 +42,8 @@
          * @memberOf thinkster.authentication.services.Authentication
          */
         function register(email, password, username) {
-            var csrftoken = window.csrf_token;
-            return $http.post('/api/v1/accounts/', {
-                csrfmiddlewaretoken: csrftoken,
+
+            dataservice.post('/api/v1/accounts/', {
                 username: username,
                 password: password,
                 email: email
@@ -56,7 +55,7 @@
              */
             function registerSuccessFn(data, status, headers, config) {
                 Authentication.login(email, password);
-                console.log('he entrado: ' + email+ password);
+                console.log('he entrado: ' + email + password);
             }
 
             /**

@@ -21,17 +21,17 @@
         //////////////////////////////////////////////////////////////////////
         function SetCredentials(users) {
             //encriptar data
-            var user = Base64encode(users.user);
-            console.log('setcred' + user);
-            //var email = Base64encode(users.email);
+            var email = Base64encode(users.email);
+            console.log('setcred' + users);
+            var username = Base64encode(users.username);
             //var name = Base64encode(users.name);
 
             //almacenarlos en la cookie session
             $cookies.putObject('session', {
-                user: user
+                email: email,
                 //avatar: users.avatar,
-                //email: email,
-                //name: name
+                //password: password,
+                username: username
             }, {
                 expires: new Date(new Date().getTime() + 24 * 60 * 60 * 1000)
             });
@@ -50,30 +50,31 @@
                 user = GetCredentialsdecode();
                 //console.log(user); //datos no encriptados
             }
-            return user;
             console.log('getcredentials' + user);
+            return user;
+
         }
 
         function GetCredentialsencode(users) {
-            var user = Base64encode(users.user);
-           // var email = Base64encode(users.email);
+            var email = Base64encode(users.email);
+            var username = Base64encode(users.username);
             //var name = Base64encode(users.name);
             return {
-                user: user,
+                email: email,
                 //avatar: users.avatar,
-                //email: email,
+                username: username,
                 //name: name
             };
         }
 
         function GetCredentialsdecode() {
-            var user = Base64decode($cookies.getObject('session').user);
-           // var email = Base64decode($cookies.getObject('session').email);
-            //var name = Base64decode($cookies.getObject('session').name);
+            var email = Base64decode($cookies.getObject('session').email);
+            var username = Base64decode($cookies.getObject('session').username)
+                //var name = Base64decode($cookies.getObject('session').name);
             return {
-                user: user,
+                email: email,
                 //avatar: $cookies.getObject('session').avatar,
-               // email: email,
+                username: username,
                 //name: name
             };
         }

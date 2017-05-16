@@ -103,6 +103,8 @@
 
     <script src="/src/client/app/layout/layout.module.js"></script>
 
+    <script src="/src/client/app/login/login-services/authentication.module.js"></script>
+
     <script src="/src/client/app/login/login-services/cookies/cookies.module.js"></script>
 
     <script src="/src/client/app/login/login-services/headerservice/header.module.js"></script>
@@ -155,6 +157,8 @@
 
     <script src="/src/client/app/login/directives/login-access.directive.js"></script>
 
+    <script src="/src/client/app/login/login-services/authentication.service.js"></script>
+
     <script src="/src/client/app/login/login-services/cookies/cookies.js"></script>
 
     <script src="/src/client/app/login/login-services/headerservice/header.service.js"></script>
@@ -179,5 +183,8 @@
     <!-- endinject -->
     <!-- endbuild -->
 </body>
+<script>
+    window.csrf_token = "{{ csrf_token }}";
+</script>
 
 </html>

@@ -19,11 +19,7 @@
             });
         })
         .run(function($http, $cookies) {
-            //$http.defaults.headers.common['X-CSRFToken'] = $cookies.csrftoken;
             $http.defaults.xsrfCookieName = 'csrftoken';
             $http.defaults.xsrfHeaderName = 'X-CSRFToken';
-            $http.defaults.withCredentials = true;
-            $http.defaults.cache = true;
-            $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
         });
 })();

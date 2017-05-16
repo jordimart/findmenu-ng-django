@@ -33,12 +33,15 @@
         function activate() {
             logger.info('Activated Home View');
             dataservice.get('/restaurants/').then(function(response) {
-                console.log(response.data);
-                vm.cards = response.data;
+                console.log(response.data.length);
+                if (response.data.length === 0) {
+                    vm.cards = mockdata.getMockRestaurants();
+                    console.log('no hay restaurants');
+                } else {
+                    vm.cards = response.data;
+                }
             });
-            dataservice.get('/restaurants/1/').then(function(response) {
-                console.log(response.data);
-            });
+
 
         }
     }

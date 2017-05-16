@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from restaurants import views
+from ..restaurants import views
 
 
 urlpatterns = [

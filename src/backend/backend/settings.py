@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'compressor',
     'backend.restaurants',
     'backend.authentication',
+    'backend.core',
     
 ]
 

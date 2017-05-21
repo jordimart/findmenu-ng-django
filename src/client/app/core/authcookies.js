@@ -2,13 +2,13 @@
     'use strict';
 
     angular
-        .module('cookiesService')
-        .factory('cookiesService', cookies);
+        .module('app.core')
+        .factory('authCookiesService', authCookiesService);
 
-    cookies.$inject = ['$cookies'];
+    authCookiesService.$inject = ['$cookies'];
 
     /* @ngInject */
-    function cookies($cookies) {
+    function authCookiesService($cookies) {
         return {
             SetCredentials: SetCredentials,
             ClearCredentials: ClearCredentials,
@@ -22,7 +22,6 @@
         function SetCredentials(users) {
             //encriptar data
             var email = Base64encode(users.email);
-            console.log('setcred' + users);
             var username = Base64encode(users.username);
             //var name = Base64encode(users.name);
 
@@ -50,7 +49,6 @@
                 user = GetCredentialsdecode();
                 //console.log(user); //datos no encriptados
             }
-            console.log('getcredentials' + user);
             return user;
 
         }

@@ -5,10 +5,10 @@
         .module('headerService')
         .factory('headerService', header);
 
-    header.$inject = ['cookiesService', '$rootScope', '$state', '$uibModal'];
+    header.$inject = ['authCookiesService', '$rootScope', '$state', '$uibModal', 'dataservice'];
 
     /* @ngInject */
-    function header(cookiesService, $rootScope, $state, $uibModal) {
+    function header(authCookiesService, $rootScope, $state, $uibModal, dataservice) {
         return {
             login: login,
             logout: logout,
@@ -18,9 +18,9 @@
         function login() {
 
             //al cargarse la pagina por primera vez, user es undefined
-            var user = cookiesService.GetCredentials();
+            var user = authCookiesService.GetCredentials();
             if (user) {
-                //mostramos enlces segun laentrada
+                //mostramos enlces segun la entrada
                 $rootScope.accederV = false;
                 $rootScope.profileV = true;
                 $rootScope.logoutV = true;
@@ -42,18 +42,27 @@
         }
 
         function logout() {
+            var data = authCookiesService.GetCredentials();
+            dataservice.post('/api/v1/auth/logout/', data).then(loginSuccessFn, loginErrorFn);
 
-            cookiesService.ClearCredentials();
+            function loginSuccessFn(response) {
+                authCookiesService.ClearCredentials();
 
-            //habilitamos o deshabilitamos enlaces
-            $rootScope.accederV = true;
-            $rootScope.profileV = false;
-            //limpiamos los valores
-            $rootScope.name = '';
-            $rootScope.avatar = '';
-            $rootScope.logoutV = false;
-            //redirigimos al home
-            $state.go('home');
+                //habilitamos o deshabilitamos enlaces
+                $rootScope.accederV = true;
+                $rootScope.profileV = false;
+                //limpiamos los valores
+                $rootScope.name = '';
+                $rootScope.avatar = '';
+                $rootScope.logoutV = false;
+                //redirigimos al home
+                $state.go('home');
+            }
+
+            function loginErrorFn(response) {
+                console.log('error en el server');
+            }
+
         }
 
         function openLoginModal() {

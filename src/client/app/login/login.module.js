@@ -4,7 +4,6 @@
     angular.module('app.login', [
         'app.core',
         'app.widgets',
-        'cookiesService',
         'headerService',
         'authentication'
     ]);

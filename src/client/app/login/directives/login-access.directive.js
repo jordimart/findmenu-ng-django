@@ -1,42 +1,42 @@
 (function() {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('app.login')
-    .directive('loginAccess', loginAccess);
-
-  /* @ngInject */
-  function loginAccess() {
-    var directive = {
-      bindToController: true,
-      controller: TopNavController,
-      controllerAs: 'vm',
-      restrict: 'E',
-      templateUrl: 'app/login/directives/login-access.html'
-    };
-
-    TopNavController.$inject = ['headerService'];
+    angular
+        .module('app.login')
+        .directive('loginAccess', loginAccess);
 
     /* @ngInject */
-    function TopNavController(headerService) {
-      var vm = this;
-      vm.showLogin = showLogin;
-      vm.logout = logout;
+    function loginAccess() {
+        var directive = {
+            bindToController: true,
+            controller: TopNavController,
+            controllerAs: 'vm',
+            restrict: 'E',
+            templateUrl: 'app/login/directives/login-access.html'
+        };
 
-      activate();
+        TopNavController.$inject = ['headerService'];
 
-      function activate() {
-        headerService.login();
-      }
+        /* @ngInject */
+        function TopNavController(headerService) {
+            var vm = this;
+            vm.showLogin = showLogin;
+            vm.logout = logout;
 
-      function showLogin() {
-        headerService.openLoginModal();
-      }
+            activate();
 
-      function logout() {
-        headerService.logout();
-      }
+            function activate() {
+                headerService.login();
+            }
+
+            function showLogin() {
+                headerService.openLoginModal();
+            }
+
+            function logout() {
+                headerService.logout();
+            }
+        }
+        return directive;
     }
-    return directive;
-  }
 })();

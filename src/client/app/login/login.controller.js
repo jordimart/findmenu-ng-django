@@ -5,11 +5,11 @@
         .controller('LoginController', LoginController);
 
     LoginController.$inject = ['$translatePartialLoader', 'dataservice', '$state', '$uibModalInstance',
-        'authCookiesService', 'logger', 'headerService', 'Authentication'
+        'authCookiesService', 'logger', 'headerService'
     ];
 
     function LoginController($translatePartialLoader, dataservice, $state, $uibModalInstance,
-        authCookiesService, logger, headerService, Authentication) {
+        authCookiesService, logger, headerService) {
 
         var vm = this;
         $translatePartialLoader.addPart('layout');
@@ -28,7 +28,7 @@
                 'email': vm.loginUser,
                 'password': vm.loginPass
             };
-            dataservice.post('/api/v1/auth/login/', data).then(loginSuccessFn, loginErrorFn);
+            dataservice.post('/api/users/login/', data).then(loginSuccessFn, loginErrorFn);
 
             function loginSuccessFn(response) {
                 logger.success('Usuario autentificado');

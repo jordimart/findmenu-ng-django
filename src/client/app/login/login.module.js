@@ -4,7 +4,7 @@
     angular.module('app.login', [
         'app.core',
         'app.widgets',
-        'headerService',
-        'authentication'
+        'headerService'
+
     ]);
 })();

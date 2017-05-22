@@ -7,7 +7,7 @@
             <div class="data-profile col-md-12">
                 <h1>{{vm.user}}</h1>
                 <div class="profile-image col-md-2">
-                    <img class="image" src="../images/jorge.png" />
+                    <img class="image" src="{{vm.image}}" />
 
                 </div>
                 <div class="profile-content col-md-10" ng-class="{'show-form' : formcontrol }">
@@ -70,8 +70,7 @@
                 <h2>Mis restaurantes</h2>
                 <hr>
                 <div class="slick-container">
-                    <slick infinite=true slides-to-show=5 slides-to-scroll=1 autoplay=true autoplaySpeed=4000 arrows=false mobileFirst=true
-                        responsive=vm.breakpoints>
+                    <slick infinite=true slides-to-show=5 slides-to-scroll=1 autoplay=true autoplaySpeed=4000 arrows=false mobileFirst=true responsive=vm.breakpoints>
                         <div class="slick-item" ng-repeat="restaurant in vm.restaurants">
                             <article class="card">
                                 <div class="image" style="background-image: url({{restaurant.image }});">
@@ -89,8 +88,7 @@
                 <h2>Mis amigos findmenu</h2>
                 <hr>
                 <div class="slick-container">
-                    <slick infinite=true slides-to-show=5 slides-to-scroll=1 autoplay=true autoplaySpeed=4000 arrows=false mobileFirst=true
-                        responsive=vm.breakpoints>
+                    <slick infinite=true slides-to-show=5 slides-to-scroll=1 autoplay=true autoplaySpeed=4000 arrows=false mobileFirst=true responsive=vm.breakpoints>
                         <div class="slick-item" ng-repeat="friend in vm.friends">
                             <article class="card">
                                 <div class="image" style="background-image: url({{friend.image}});">

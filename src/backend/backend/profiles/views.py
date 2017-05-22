@@ -27,5 +27,4 @@ class ProfileRetrieveAPIView(RetrieveAPIView):
             raise ProfileDoesNotExist
 
         serializer = self.serializer_class(profile)
-
         return Response(serializer.data, status=status.HTTP_200_OK)

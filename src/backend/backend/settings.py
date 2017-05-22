@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'backend.restaurants',
     'backend.authentication',
     'backend.core',
+    'backend.profiles',
     
 ]
 
@@ -142,6 +143,8 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
 )
+
+AUTH_USER_MODEL = 'authentication.User'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (

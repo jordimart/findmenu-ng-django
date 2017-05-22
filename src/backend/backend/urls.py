@@ -23,7 +23,10 @@ from django.conf import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^admin$', include(admin.site.urls)),
-    url(r'^', include('backend.authentication.urls')),
+    # url(r'^', include('backend.authentication.urls')),
+    # url(r'^', include('backend.profile.urls', namespace='profiles')),
+    url(r'^', include('backend.authentication.urls', namespace='authentication')),
+    url(r'^api/', include('backend.profiles.urls', namespace='profiles')),
     url(r'^', include('backend.restaurants.urls')),
     url(r'^', TemplateView.as_view(template_name="index.html")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

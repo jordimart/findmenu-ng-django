@@ -1,37 +1,111 @@
 from rest_framework import serializers
-from django.contrib.auth import update_session_auth_hash
-from .models import Account
+from django.contrib.auth import authenticate
+
+from ..profiles.serializers import ProfileSerializer
+
+from .models import User
 
 
-class AccountSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True, required=False)
-    confirm_password = serializers.CharField(write_only=True, required=False)
+class RegistrationSerializer(serializers.ModelSerializer):
+    """Serializers registration requests and creates a new user."""
+
+    password = serializers.CharField(
+        max_length=128,
+        min_length=8,
+        write_only=True,
+        required=False
+    )
+
+    # profile = ProfileSerializer(write_only=True)
+    # bio = serializers.CharField(source='profile.bio', read_only=True, required=False)
+    # image = serializers.CharField(source='profile.image', read_only=True, required=False)
 
     class Meta:
-        model = Account
-        fields = ('id', 'email', 'username', 'created_at', 'updated_at',
-                  'first_name', 'last_name', 'tagline', 'password',
-                  'confirm_password',)
-        read_only_fields = ('created_at', 'updated_at',)
+        model = User
+        # List all of the fields that could possibly be included in a request
+        # or response, including fields specified explicitly above.
+        fields = ('email', 'username', 'password')
 
     def create(self, validated_data):
-        return Account.objects.create(**validated_data)
+        # Use the `create_user` method we wrote earlier to create a new user.
+        return User.objects.create_user(**validated_data)
 
-    def update(self, instance, validated_data):
-        instance.username = validated_data.get('username', instance.username)
-        instance.tagline = validated_data.get('tagline', instance.tagline)
-        instance.save()
 
-        password = validated_data.get('password', None)
-        confirm_password = validated_data.get('confirm_password', None)
+class LoginSerializer(serializers.Serializer):
+    email = serializers.CharField(max_length=255)
+    username = serializers.CharField(max_length=255, read_only=True)
+    password = serializers.CharField(max_length=128, write_only=True)
+    token = serializers.CharField(max_length=255, read_only=True)
 
-        if password and confirm_password:
-            if password == confirm_password:
-                instance.set_password(password)
-                instance.save()
-            else:
-                raise serializers.ValidationError({"password": ["Passwords don't match."]})
+    def validate(self, data):
 
-        update_session_auth_hash(self.context.get('request'), instance)
+        email = data.get('email', None)
+        password = data.get('password', None)
 
-        return instance
+        if email is None:
+            raise serializers.ValidationError(
+                'An email address is required to log in.'
+            )
+
+        if password is None:
+            raise serializers.ValidationError(
+                'A password is required to log in.'
+            )
+
+        user = authenticate(username=email, password=password)
+
+        if user is None:
+            raise serializers.ValidationError(
+                'A user with this email and password was not found.'
+            )
+
+        if not user.is_active:
+            raise serializers.ValidationError(
+                'This user has been deactivated.'
+            )
+
+        return {
+            'email': user.email,
+            'username': user.username,
+        }
+
+
+class UserSerializer(serializers.ModelSerializer):
+    """Handles serialization and deserialization of User objects."""
+
+    password = serializers.CharField(
+        max_length=128,
+        min_length=8,
+        write_only=True
+    )
+
+
+class Meta:
+    model = User
+    fields = ('email', 'username', 'password')
+
+
+def update(self, instance, validated_data):
+    """Performs an update on a User."""
+
+    password = validated_data.pop('password', None)
+
+    profile_data = validated_data.pop('profile', {})
+
+    for (key, value) in validated_data.items():
+
+        setattr(instance, key, value)
+
+    if password is not None:
+
+        instance.set_password(password)
+
+    instance.save()
+
+    for (key, value) in profile_data.items():
+
+        setattr(instance.profile, key, value)
+
+        instance.profile.save()
+
+    return instance

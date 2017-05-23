@@ -30,13 +30,13 @@
         activate();
 
         function activate() {
-            logger.info('Activated Home View');
             dataservice.get('/restaurants/').then(function(response) {
 
                 if (response.data.length === 0) {
                     vm.cards = mockdata.getMockRestaurants();
 
                 } else {
+                    console.log(response.data);
                     vm.cards = response.data;
                 }
             });

@@ -10,12 +10,30 @@
     function ProfileController(logger, dataservice, authCookiesService, mockdata, $state) {
         var vm = this;
         vm.title = 'Home';
+        //data profile//
         vm.name = '';
+        vm.firstname = '';
         vm.lastname = '';
         vm.birthdate = '';
         vm.email = '';
         vm.city = '';
+        vm.restaurantnumber = '';
+        vm.friendsnumber = '';
         vm.text = '';
+        vm.image = '';
+        vm.registrationdate = '';
+
+        //data restaurants//
+        vm.email = '';
+        vm.restName = '';
+        vm.restImage = '';
+        vm.restCity = '';
+        vm.restLatitude = '';
+        vm.restLongitude = '';
+        vm.valoration = '';
+        vm.breackfast_price = '';
+        vm.launch_price = '';
+        vm.dinner_price = '';
 
         vm.friends = mockdata.getMockUsers();
         vm.restaurants = mockdata.getMockRestaurants();
@@ -33,12 +51,15 @@
             }
         }];
 
+        vm.restaurantcontrol = false;
+
         vm.SubmitProfile = SubmitProfile;
+        vm.SubmitRestaurant = SubmitRestaurant;
 
         activate();
 
         function activate() {
-            logger.info('Activated Profile View');
+
             getProfile();
         }
 
@@ -52,7 +73,6 @@
                     logger.success('Profile');
                     var user = response.data.profile;
 
-                    console.log(response);
                     vm.name = user.name;
                     vm.firstname = user.first_name;
                     vm.lastname = user.last_name;
@@ -78,6 +98,33 @@
         function SubmitProfile() {
             logger.success('Datos modificados');
             $state.go('home');
+        }
+
+        function SubmitRestaurant() {
+            var data = {
+                'author': vm.email,
+                'name': vm.restName,
+                'image': vm.restImage,
+                'city': vm.restCity,
+                'lat': vm.restLatitude,
+                'lon': vm.restLongitude,
+                'valoration': vm.valoration,
+                'breackfast_price': vm.breackfast_price,
+                'launch_price': vm.launch_price,
+                'dinner_price': vm.dinner_price
+            };
+
+            dataservice.post('/restaurants/', data).then(successFn, errorFn);
+
+            function successFn(response) {
+                logger.success('Restaurante añadido');
+                vm.restaurantcontrol = false;
+            }
+
+            function errorFn(response) {
+                logger.error(
+                    'Error al añadir el restaurante');
+            }
         }
 
     }

@@ -26,8 +26,9 @@
                         <p><strong>Amigos:</strong>{{vm.friendsnumber}}</p>
                         <p><strong>Fecha de registro:</strong>{{vm.registrationdate}}</p>
                     </div>
-                    <div class="modify-button">
+                    <div class="modify-button col-md-12">
                         <button class="btn btn-success" ng-click="formcontrol = !formcontrol">Modificar</button>
+                        <button class="btn btn-success" ng-click="vm.restaurantcontrol = !vm.restaurantcontrol">Añadir restaurante</button>
                     </div>
                 </div>
 
@@ -49,6 +50,28 @@
 
                         <div class="modify-button">
                             <button class="btn btn-success" type="submit" ng-disabled="!profileForm.$valid" ng-click="vm.SubmitProfile()">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="profile-form col-md-10" ng-class="{'show-form' : !vm.restaurantcontrol }">
+                    <h3>Nuevo restaurante</h3>
+                    <form name="profileForm" novalidate>
+                        <div class="form-group col-md-6">
+                            <input type="text" name="name" ng-model="vm.restName" class="form-control" placeholder="Nombre" required>
+                            <input type="text" name="latitude" ng-model="vm.restLatitude" class="form-control" placeholder="Latitud" required>
+                            <input type="text" name="longitude" ng-model="vm.restLongitude" class="form-control" placeholder="Longitud" required>
+                            <input type="text" name="city" ng-model="vm.restCity" class="form-control" placeholder="Población" required>
+                            <input type="text" name="image" ng-model="vm.restImage" class="form-control" placeholder="Foto" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" name="breackfast_price" ng-model="vm.breackfast_price" class="form-control" placeholder="Precio del almuerzo" required type="number">
+                            <input type="text" name="breackfast_price" ng-model="vm.launch_price" class="form-control" placeholder="Precio de la comida" required type="number">
+                            <input type="text" name="dinner_price" ng-model="vm.dinner_price" class="form-control" placeholder="Precio de la cena" required type="number">
+                            <input type="text" name="valoration" ng-model="vm.valoration" class="form-control" placeholder="Valoración del 1 al 10" required type="number">
+                        </div>
+
+                        <div class="modify-button col-md-12">
+                            <button class="btn btn-success" type="submit" ng-disabled="!profileForm.$valid" ng-click="vm.SubmitRestaurant()">Guardar</button>
                         </div>
                     </form>
                 </div>

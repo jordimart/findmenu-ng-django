@@ -67,12 +67,12 @@
                                     <img class="img-responsive" src="{{ card.image }}" />
                                 </div>
                                 <div class="info">
-                                    <h3>Nombre del restaurante</h3>
+                                    <h3>{{card.name}}</h3>
                                     <div>
                                         <div class="col-md-6 col-xs-6">
                                             <ul>
                                                 <li>almuerzo: {{card.breackfast_price}} euros</li>
-                                                <li>comida: {{card.lunch.price}} euros</li>
+                                                <li>comida: {{card.launch_price}} euros</li>
                                                 <li>cena: {{card.dinner_price}} euros</li>
                                             </ul>
                                         </div>
@@ -80,7 +80,7 @@
                                             <ul>
                                                 <li>{{card.city}}</li>
                                                 <li>{{card.valoration}}</li>
-                                                <li>{{card.num_reviews}} opin.</li>
+                                                <li>{{card.review}} opin.</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -105,11 +105,11 @@
                                 </div>
 
                                 <div class="info">
-                                    <h3>Nombre del restaurante</h3>
+                                    <h3>{{card.name}}</h3>
                                     <div class="col-md-6 col-xs-6">
                                         <ul>
                                             <li>almuerzo: {{card.breackfast_price}} euros</li>
-                                            <li>comida: {{card.lunch.price}} euros</li>
+                                            <li>comida: {{card.launch_price}} euros</li>
                                             <li>cena: {{card.dinner_price}} euros</li>
                                         </ul>
                                     </div>

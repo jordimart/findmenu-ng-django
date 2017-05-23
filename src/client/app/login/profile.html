@@ -15,7 +15,8 @@
                     <p>{{vm.text}}</p>
                     <div class="profile-data-1 col-md-6">
                         <p><strong>Nombre:</strong>{{vm.name}}</p>
-                        <p><strong>Apellidos:</strong>{{vm.firstname}}{{vm.lastname}}</p>
+                        <p><strong>Primer apellido:</strong>{{vm.firstname}}</p>
+                        <p><strong>Segundo apellido:</strong>{{vm.lastname}}</p>
                         <p><strong>Email:</strong>{{vm.email}}</p>
                         <p><strong>Fecha de nacimiento:</strong>{{vm.birthdate}}</p>
                     </div>
@@ -23,7 +24,7 @@
                         <p><strong>Población:</strong>{{vm.city}}</p>
                         <p><strong>Restaurantes:</strong>{{vm.restaurantnumber}}</p>
                         <p><strong>Amigos:</strong>{{vm.friendsnumber}}</p>
-                        <p><strong>Fecha de registro:</strong>{{vm.registrationdate }}</p>
+                        <p><strong>Fecha de registro:</strong>{{vm.registrationdate}}</p>
                     </div>
                     <div class="modify-button">
                         <button class="btn btn-success" ng-click="formcontrol = !formcontrol">Modificar</button>
@@ -42,9 +43,6 @@
                             <input type="text" name="lastname" ng-model="vm.lastname" class="form-control" placeholder="Segundo apellido">
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="email" name="email" ng-model="vm.email" class="form-control" placeholder="Email">
-                            <span class="label label-danger" ng-show="profileForm.email.$error.email && !profileForm.email.$pristine">
-                             Email no válido!</span>
                             <input type="text" name="birthdate" ng-model="vm.birthdate" class="form-control" placeholder="Fecha de nacimiento">
                             <input type="text" name="city" ng-model="vm.city" class="form-control" placeholder="Población">
                         </div>

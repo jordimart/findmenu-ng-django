@@ -9,6 +9,7 @@ class Profile(TimestampedModel):
     bio = models.TextField(blank=True,)
     image = models.URLField(blank=True)
     city = models.CharField(blank=True, max_length=40)
+    name = models.CharField(blank=True, max_length=40)
     first_name = models.CharField(blank=True, max_length=40)
     last_name = models.CharField(blank=True, max_length=40)
     date_birth = models.CharField(blank=True, max_length=40)

@@ -1,12 +1,16 @@
 from rest_framework import serializers
+from ..authentication.serializers import UserSerializer
 from .models import Restaurant
 
 
 class RestaurantSerializer(serializers.ModelSerializer):
+    # author = UserSerializer(read_only=True, required=False)
+
     class Meta:
         model = Restaurant
         fields = ('id', 'name', 'image', 'city', 'lat', 'lon', 'valoration', 'review', 'users', 'breackfast_price',
                   'launch_price', 'dinner_price', 'filters', 'created_at', 'updated_at')
+        read_only_fields = ('id', 'created_at', 'updated_at')
 
     def create(self, validated_data):
 

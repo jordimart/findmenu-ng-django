@@ -18,18 +18,20 @@ class JSONResponse(HttpResponse):
 
 @csrf_exempt
 def restaurant_list(request):
-
+    print(request)
     if request.method == 'GET':
         restaurants = Restaurant.objects.all()
         serializer = RestaurantSerializer(restaurants, many=True)
         return JSONResponse(serializer.data)
 
     elif request.method == 'POST':
+        print(request)
         data = JSONParser().parse(request)
         serializer = RestaurantSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
             return JSONResponse(serializer.data, status=201)
+        print('bad')
         return JSONResponse(serializer.errors, status=400)
 
 

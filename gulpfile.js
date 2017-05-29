@@ -11,6 +11,7 @@ var $ = require('gulp-load-plugins')({
     lazy: true
 });
 var replace = require('gulp-replace');
+var watch = require('gulp-watch');
 
 var colors = $.util.colors;
 var envenv = $.util.env;
@@ -424,6 +425,13 @@ gulp.task('browserSyncReload', ['optimize'], browserSync.reload);
 gulp.task('watch', function() {
     gulp.watch([config.sass, config.js, config.html])
         .on('change', changeEvent);
+});
+
+
+gulp.task('django', function() {
+    gulp.watch([config.sass, config.html, config.js], ['build']);
+    //Hay que introducir el siguiente comando en linux para que observe muchos ficheros
+    // echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 });
 ////////////////
 

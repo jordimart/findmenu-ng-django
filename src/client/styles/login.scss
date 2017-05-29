@@ -169,11 +169,9 @@
 
 #profile {
     #banner {
-        background-position: center center;
-        background-repeat: no-repeat;
         background-image: url("../images/pizza.jpg");
-        background-size: cover;
         height: 300px;
+        @include background-image;
     }
     #wrapper-profile {
         hr {
@@ -240,16 +238,14 @@
                     }
                 }
             }
-            
-            .user-friends,.user-menus {
+            .user-friends,
+            .user-menus {
                 .image {
                     margin: 0px 10px;
                     position: relative;
                     height: 175px;
                     overflow: hidden;
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    background-position: center;
+                    @include background-image;
                     background-color: rgba(white, .15);
                     &:hover,
                     &:focus {

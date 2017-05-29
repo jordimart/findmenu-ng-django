@@ -1,10 +1,8 @@
 @import 'var';
 #blog {
     #banner {
-        background-position: center center;
-        background-repeat: no-repeat;
+        @include background-image;
         background-image: url("../images/pizza.jpg");
-        background-size: cover;
         height: 300px;
     }
     .blog-content {

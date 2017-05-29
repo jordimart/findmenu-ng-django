@@ -6,16 +6,8 @@ $primary: #42B574;
 $font-stack: 'Open Sans',
 sans-serif;
 //Configuraciones
-//Responsive
-@mixin for-size($size) {
-    @if $size==phone {
-        @media only screen and (max-width: 576px) and (min-width: 400px) {
-            @content;
-        }
-    }
-    @else if $size==tablet {
-        @media only screen and (max-width: 767px) {
-            @content;
-        }
-    }
+@mixin background-image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

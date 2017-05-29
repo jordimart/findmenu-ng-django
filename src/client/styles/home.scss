@@ -1,8 +1,8 @@
 @import 'var';
 #home {
     .image-wrapper {
-        background: url('../images/salad.jpg') no-repeat;
-        background-size: cover;
+        background: url('../images/salad.jpg');
+        @include background-image;
         position: relative;
         display: table;
         width: 100%;

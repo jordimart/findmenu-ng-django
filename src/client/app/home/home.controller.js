@@ -11,37 +11,40 @@
         var vm = this;
         vm.title = 'Home';
         vm.posts = mockdata.getMockPosts();
-        vm.breakpoints = [{
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2
-            }
-        }, {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
-        }];
+        vm.breakpoints = getBreackPointsCarousel();
 
         $translatePartialLoader.addPart('home');
 
         activate();
 
         function activate() {
-            dataservice.get('/restaurants/').then(function(response) {
+            getDataRestaurants();
+        }
 
+        function getDataRestaurants() {
+            dataservice.get('/restaurants/').then(function(response) {
                 if (response.data.length === 0) {
                     vm.cards = mockdata.getMockRestaurants();
-
                 } else {
-                    console.log(response.data);
                     vm.cards = response.data;
                 }
             });
+        }
 
-
+        function getBreackPointsCarousel() {
+            return [{
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            }, {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }];
         }
     }
 })();

@@ -10,7 +10,6 @@
     function RestaurantsController(logger, $translatePartialLoader, $scope, mockdata, filterRestaurants, dataservice) {
         var vm = this;
         vm.title = 'Restaurants';
-        //vm.cards = mockdata.getMockRestaurants();
         vm.radioModel = 'launch_price';
         vm.userIcon = {
             'scaledSize': [40, 40],
@@ -18,23 +17,24 @@
         };
         vm.findmenuIcon = "static/images/findmenuGreen.png";
         vm.changeTags = changeTags;
-        // vm.options = mockdata.getMockRestaurants().city;
-
-
 
         $translatePartialLoader.addPart('restaurants');
 
         activate();
 
-
         ////////////////
 
         function activate() {
-            logger.info('Activated Restaurants View');
+            getDataRestaurants();
+        }
+
+        function getDataRestaurants() {
             dataservice.get('/restaurants/').then(function(response) {
-                console.log(response.data);
-                vm.cards = response.data;
-                changeTags();
+                if (response.data.length === 0) {
+                    vm.cards = mockdata.getMockRestaurants();
+                } else {
+                    vm.cards = response.data;
+                }
             });
         }
 

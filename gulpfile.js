@@ -11,7 +11,6 @@ var $ = require('gulp-load-plugins')({
     lazy: true
 });
 var replace = require('gulp-replace');
-var watch = require('gulp-watch');
 
 var colors = $.util.colors;
 var envenv = $.util.env;

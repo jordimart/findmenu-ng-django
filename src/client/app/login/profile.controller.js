@@ -52,6 +52,7 @@
         }];
 
         vm.restaurantcontrol = false;
+        vm.formcontrol = false;
 
         vm.SubmitProfile = SubmitProfile;
         vm.SubmitRestaurant = SubmitRestaurant;
@@ -97,14 +98,14 @@
 
         function SubmitProfile() {
             logger.success('Datos modificados');
-            $state.go('home');
+            vm.formcontrol = false;
         }
 
         function SubmitRestaurant() {
             var data = {
                 'author': vm.email,
                 'name': vm.restName,
-                'image': vm.restImage,
+                'image': 'static/images/default.jpg',
                 'city': vm.restCity,
                 'lat': vm.restLatitude,
                 'lon': vm.restLongitude,

@@ -10,7 +10,7 @@
     function RestaurantsController(logger, $translatePartialLoader, $scope, mockdata, filterRestaurants, dataservice) {
         var vm = this;
         vm.title = 'Restaurants';
-        vm.radioModel = 'launch_price';
+        vm.radioModel = 'name';
         vm.userIcon = {
             'scaledSize': [40, 40],
             'url': "static/images/user-icon.png"
@@ -26,14 +26,17 @@
 
         function activate() {
             getDataRestaurants();
+
         }
 
         function getDataRestaurants() {
             dataservice.get('/restaurants/').then(function(response) {
                 if (response.data.length === 0) {
                     vm.cards = mockdata.getMockRestaurants();
+                    changeTags();
                 } else {
                     vm.cards = response.data;
+                    changeTags();
                 }
             });
         }

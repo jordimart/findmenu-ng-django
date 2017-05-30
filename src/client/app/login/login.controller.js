@@ -13,7 +13,7 @@
 
         var vm = this;
         $translatePartialLoader.addPart('layout');
-        vm.loginUser = '';
+        vm.loginEmail = '';
         vm.loginPass = '';
         vm.registerUser = '';
         vm.registerEmail = '';
@@ -25,7 +25,7 @@
 
         function SubmitLogin() {
             var data = {
-                'email': vm.loginUser,
+                'email': vm.loginEmail,
                 'password': vm.loginPass
             };
             dataservice.post('/api/users/login/', data).then(loginSuccessFn, loginErrorFn);

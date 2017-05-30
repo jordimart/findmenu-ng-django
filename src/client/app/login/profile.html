@@ -3,14 +3,12 @@
     </section>
     <div id="wrapper-profile" class="container">
         <div class="data-card col-md-12">
-
             <div class="data-profile col-md-12">
                 <h1>{{vm.user}}</h1>
                 <div class="profile-image col-md-2">
                     <img class="image" src="{{vm.image}}" />
-
                 </div>
-                <div class="profile-content col-md-10" ng-class="{'show-form' : formcontrol }">
+                <div class="profile-content col-md-10" ng-class="{'show-form' : vm.formcontrol }">
                     <h3>Sobre mi</h3>
                     <p>{{vm.text}}</p>
                     <div class="profile-data-1 col-md-6">
@@ -27,12 +25,11 @@
                         <p><strong>Fecha de registro:</strong>{{vm.registrationdate}}</p>
                     </div>
                     <div class="modify-button col-md-12">
-                        <button class="btn btn-success" ng-click="formcontrol = !formcontrol">Modificar</button>
+                        <button class="btn btn-success" ng-click="vm.formcontrol = !vm.formcontrol">Modificar</button>
                         <button class="btn btn-success" ng-click="vm.restaurantcontrol = !vm.restaurantcontrol">Añadir restaurante</button>
                     </div>
                 </div>
-
-                <div class="profile-form col-md-10" ng-class="{'show-form' : !formcontrol }">
+                <div class="profile-form col-md-10" ng-class="{'show-form' : !vm.formcontrol }">
                     <h3>Sobre mi</h3>
                     <form name="profileForm" novalidate>
                         <div class="form-group col-md-12">
@@ -48,36 +45,40 @@
                             <input type="text" name="city" ng-model="vm.city" class="form-control" placeholder="Población">
                         </div>
 
-                        <div class="modify-button">
-                            <button class="btn btn-success" type="submit" ng-disabled="!profileForm.$valid" ng-click="vm.SubmitProfile()">Guardar</button>
+                        <div class="modify-button col-md-12">
+                            <button class="btn btn-success" type="submit" ng-click="vm.SubmitProfile()">Guardar</button>
                         </div>
                     </form>
                 </div>
                 <div class="profile-form col-md-10" ng-class="{'show-form' : !vm.restaurantcontrol }">
                     <h3>Nuevo restaurante</h3>
-                    <form name="profileForm" novalidate>
+                    <form name="restaurantForm" novalidate>
                         <div class="form-group col-md-6">
                             <input type="text" name="name" ng-model="vm.restName" class="form-control" placeholder="Nombre" required>
+                            <span class="label label-danger" ng-show="restaurantForm.name.$error.required && !restaurantForm.name.$pristine">Campo obligatorio!</span>
                             <input type="text" name="latitude" ng-model="vm.restLatitude" class="form-control" placeholder="Latitud" required>
+                            <span class="label label-danger" ng-show="restaurantForm.latitude.$error.required && !restaurantForm.latitude.$pristine">Campo obligatorio!</span>
                             <input type="text" name="longitude" ng-model="vm.restLongitude" class="form-control" placeholder="Longitud" required>
+                            <span class="label label-danger" ng-show="restaurantForm.longitude.$error.required && !restaurantForm.longitude.$pristine">Campo obligatorio!</span>
                             <input type="text" name="city" ng-model="vm.restCity" class="form-control" placeholder="Población" required>
-                            <input type="text" name="image" ng-model="vm.restImage" class="form-control" placeholder="Foto" required>
+                            <span class="label label-danger" ng-show="restaurantForm.city.$error.required && !restaurantForm.city.$pristine">Campo obligatorio!</span>
                         </div>
                         <div class="form-group col-md-6">
                             <input type="text" name="breackfast_price" ng-model="vm.breackfast_price" class="form-control" placeholder="Precio del almuerzo" required type="number">
-                            <input type="text" name="breackfast_price" ng-model="vm.launch_price" class="form-control" placeholder="Precio de la comida" required type="number">
+                            <span class="label label-danger" ng-show="restaurantForm.breackfast_price.$error.required && !restaurantForm.breackfast_price.$pristine">Campo obligatorio!</span>
+                            <input type="text" name="launch_price" ng-model="vm.launch_price" class="form-control" placeholder="Precio de la comida" required type="number">
+                            <span class="label label-danger" ng-show="restaurantForm.launch_price.$error.required && !restaurantForm.launch_price.$pristine">Campo obligatorio!</span>
                             <input type="text" name="dinner_price" ng-model="vm.dinner_price" class="form-control" placeholder="Precio de la cena" required type="number">
+                            <span class="label label-danger" ng-show="restaurantForm.dinner_price.$error.required && !restaurantForm.dinner_price.$pristine">Campo obligatorio!</span>
                             <input type="text" name="valoration" ng-model="vm.valoration" class="form-control" placeholder="Valoración del 1 al 10" required type="number">
+                            <span class="label label-danger" ng-show="restaurantForm.valoration.$error.required && !restaurantForm.valoration.$pristine">Campo obligatorio!</span>
                         </div>
-
                         <div class="modify-button col-md-12">
-                            <button class="btn btn-success" type="submit" ng-disabled="!profileForm.$valid" ng-click="vm.SubmitRestaurant()">Guardar</button>
+                            <button class="btn btn-success" type="submit" ng-disabled="!restaurantForm.$valid" ng-click="vm.SubmitRestaurant()">Guardar</button>
                         </div>
                     </form>
                 </div>
             </div>
-
-
         </div>
 
         <div class="extra-profile col-md-12">

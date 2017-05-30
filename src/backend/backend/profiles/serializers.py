@@ -27,4 +27,4 @@ class ProfileSerializer(serializers.ModelSerializer):
         if obj.image:
             return obj.image
 
-        return 'http://www4.csudh.edu/Assets/CSUDH-Sites/SLP/images/Faculty-Staff-photos/NoPhoto_icon-user-default.jpg'
+        return 'static/images/userdefault.jpg'

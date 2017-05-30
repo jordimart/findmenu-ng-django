@@ -16,7 +16,7 @@ class JSONResponse(HttpResponse):
         super(JSONResponse, self).__init__(content, **kwargs)
 
 
-@csrf_exempt
+# @csrf_exempt
 def restaurant_list(request):
     print(request)
     if request.method == 'GET':
@@ -35,7 +35,7 @@ def restaurant_list(request):
         return JSONResponse(serializer.errors, status=400)
 
 
-@csrf_exempt
+# @csrf_exempt
 def restaurant_detail(request, pk):
 
     try:

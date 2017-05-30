@@ -181,6 +181,10 @@ a {
     transition: all linear 500ms;
 }
 
+.btn-success {
+    @include animated-button;
+}
+
 
 /*Responsive*/
 

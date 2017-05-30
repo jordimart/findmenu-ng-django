@@ -36,7 +36,7 @@
                     .tab-content {
                         .btn-success {
                             border-radius: 0px;
-                            background-color: $primary;
+                            //background-color: $primary;
                         }
                     }
                     .form-control {
@@ -63,6 +63,7 @@
                 margin: 0px;
                 i {
                     color: #42B574 !important;
+                    cursor: pointer;
                 }
             }
             .navbar-left {
@@ -70,6 +71,7 @@
                     color: #42B574 !important;
                     padding-top: 5px;
                     padding-bottom: 5px;
+                    cursor: pointer;
                 }
             }
         }
@@ -214,6 +216,9 @@
                     .profile-data-2 {
                         padding-left: 0px !important;
                     }
+                    .modify-button {
+                        padding-left: 0px;
+                    }
                 }
                 .profile-form {
                     .form-group {
@@ -232,9 +237,6 @@
                     li {
                         display: inline-flex;
                         margin: 0px 10px !important;
-                        button {
-                            color: #fff;
-                        }
                     }
                 }
             }

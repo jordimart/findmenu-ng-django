@@ -22,9 +22,10 @@
                 padding: 20px 55px;
                 color: white;
                 background-color: rgba(10, 25, 35, 0.7);
-                .btn-success {
-                    background-color: #42B574;
-                    border-color: #42B574;
+                .form-group {
+                    .btn-success {
+                        margin: 0px;
+                    }
                 }
             }
         }
@@ -66,8 +67,6 @@
                             }
                         }
                         .btn {
-                            background-color: #42B574;
-                            border-color: #42B574;
                             margin-left: 14px;
                         }
                     }
@@ -90,10 +89,6 @@
                         .image {
                             max-width: 250px;
                             height: 180px;
-                        }
-                        .btn {
-                            background-color: #42B574;
-                            border-color: #42B574;
                         }
                     }
                 }

@@ -29,8 +29,8 @@
                                 .text-middle {
                                     vertical-align: middle;
                                     .label-success {
+                                        @include animated-button;
                                         padding: 8px 12px !important;
-                                        background-color: $primary;
                                     }
                                 }
                             }

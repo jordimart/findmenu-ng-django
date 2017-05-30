@@ -26,8 +26,7 @@ SECRET_KEY = 'u8(1%*(_%t5mj+hn*7a5a1^!!qv@^%q49(j2#e61wc1n!nd$x%'
 DEBUG = False
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-ALLOWED_HOSTS = ['127.0.0.1']
-AUTH_USER_MODEL = 'authentication.Account'
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
